@@ -1,0 +1,37 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Rule Type: Manual
+Descripción: Genera una página Next.js en `pages/NombrePagina.tsx` con metadatos básicos.
+
+----  
+# Instrucciones para Cursor:
+Cuando pongas `@crear-pagina NombrePagina`:
+
+1. Crea (si no existe) la carpeta `pages/`.
+2. Genera `pages/NombrePagina.tsx` con el siguiente template:
+
+```tsx
+import { NextPage } from 'next'
+import Head from 'next/head'
+import React from 'react'
+
+const NombrePagina: NextPage = () => {
+  return (
+    <>
+      <Head>
+        <title>NombrePagina | Homero AI</title>
+        <meta name="description" content="Descripción breve de NombrePagina" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </Head>
+      <main className="min-h-screen bg-gray-100 text-gray-800 flex flex-col items-center justify-center">
+        <h1 className="text-4xl font-extrabold mb-4">Bienvenido a NombrePagina</h1>
+        <p className="text-lg">Contenido inicial de la página.</p>
+      </main>
+    </>
+  )
+}
+
+export default NombrePagina

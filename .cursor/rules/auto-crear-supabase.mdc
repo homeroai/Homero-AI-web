@@ -1,0 +1,22 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Rule Type: Autodetect
+Descripción: Verifica si `src/lib/supabaseClient.ts` existe; si no, lo crea con configuración básica.
+
+Find Pattern: ^(?:(?!src/lib/supabaseClient\.ts).)*$
+----  
+# Instrucciones para Cursor:
+1. Al guardar cualquier archivo del proyecto:
+   - Si el archivo `src/lib/supabaseClient.ts` NO existe, crear `src/lib/` si hace falta, y luego:
+
+```ts
+// src/lib/supabaseClient.ts
+import { createClient } from '@supabase/supabase-js'
+
+export const supabase = createClient(
+  process.env.NEXT_PUBLIC_SUPABASE_URL!,
+  process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+)

@@ -1,0 +1,31 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Rule Type: Manual
+Descripción: Crea un componente React en TypeScript + Tailwind en la carpeta `src/components`.
+
+----  
+# Instrucciones para Cursor:
+Cuando escribas `@crear-componente NombreComponente` en tu código:
+
+1. Genera `src/components/NombreComponente.tsx` con este contenido:
+
+```tsx
+import React from 'react'
+
+interface NombreComponenteProps {
+  // aquí defines props si las necesitas
+}
+
+const NombreComponente: React.FC<NombreComponenteProps> = ({ /* props */ }) => {
+  return (
+    <div className="flex flex-col items-center justify-center p-4">
+      <h2 className="text-2xl font-bold">NombreComponente</h2>
+      {/* TODO: Agrega tu contenido aquí */}
+    </div>
+  )
+}
+
+export default NombreComponente

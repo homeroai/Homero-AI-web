@@ -1,0 +1,66 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Rule Type: Manual
+Descripción: Genera un custom hook en `src/hooks/` listo para usar con OpenAI o Supabase.
+
+----  
+# Instrucciones para Cursor:
+Cuando escribas `@crear-hook useNombreHook`:
+
+1. Genera `src/hooks/useNombreHook.ts` con este template:
+
+```ts
+import { useState, useEffect } from 'react'
+import { createClient } from '@supabase/supabase-js'
+// OPCIONAL: import OpenAI si quieres usar IA
+// import OpenAI from 'openai';
+
+interface UseNombreHookOptions {
+  // Define aquí opciones (por ejemplo, prompt de IA o parámetros)
+}
+
+interface UseNombreHookResult {
+  data: any
+  loading: boolean
+  error: any
+  // agrega más propiedades si las necesitas
+}
+
+/**
+ * Hook personalizado para Homero AI: por ejemplo, llamar a OpenAI o Supabase
+ */
+export function useNombreHook(options?: UseNombreHookOptions): UseNombreHookResult {
+  const [data, setData] = useState<any>(null)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<any>(null)
+
+  useEffect(() => {
+    async function fetchData() {
+      setLoading(true)
+      try {
+        // Ejemplo con Supabase:
+        // const supa = createClient(process.env.NEXT_PUBLIC_SUPABASE_URL!, process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!);
+        // const { data: result } = await supa.from('tabla').select('*');
+        // setData(result)
+
+        // Ejemplo con OpenAI (descomenta si quieres usarlo):
+        // const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! })
+        // const response = await openai.chat.completions.create({ model: 'gpt-4o-mini', messages: [...] });
+        // setData(response.choices[0]?.message.content)
+
+      } catch (err) {
+        setError(err)
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchData()
+  },[])
+
+  return { data, loading, error }
+}
+

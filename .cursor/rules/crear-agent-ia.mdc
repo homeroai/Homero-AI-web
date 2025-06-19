@@ -1,0 +1,27 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+Rule Type: Manual
+Descripción: Crea la estructura de carpetas y archivos base para un “Agent” de IA en `src/agents/NombreAgent/`.
+
+----  
+# Instrucciones para Cursor:
+Cuando pongas `@crear-agent NombreAgent`:
+
+1. Si no existe, crea la carpeta `src/agents/NombreAgent/`.
+2. Dentro de `src/agents/NombreAgent/`, genera estos archivos:
+
+  a) `index.ts` con:
+  ```ts
+  // src/agents/NombreAgent/index.ts
+  import { NextApiRequest, NextApiResponse } from 'next'
+  import OpenAI from 'openai'
+
+  // Ejemplo de endpoint API para este agente
+  export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+    const openai = new OpenAI({ apiKey: process.env.OPENAI_API_KEY! })
+    // TODO: Implementar lógica del agente (Whisper, GPT-4, ElevenLabs, etc.)
+    res.status(200).json({ message: 'Agente NombreAgent activo' })
+  }

@@ -1,0 +1,14 @@
+---
+description: Importar y renderizar íconos desde la librería lucide-react de forma centralizada y eficiente usando el componente Icon.tsx.
+globs: 
+alwaysApply: false
+---
+Describe the tasks this rule is helpful for, tag files with @
+
+Esta regla permite usar un único componente `<Icon />` para importar cualquier ícono de `lucide-react` de forma dinámica o estática, manteniendo el estilo visual coherente en toda la app Homero AI.
+
+✅ Evita tener que importar íconos manualmente en cada archivo.  
+✅ Asegura tamaño, color y clases globales desde un solo lugar.  
+✅ Soporta props como `name`, `className`, `size`, `color`.
+
+@src/components/ui/Icon.tsx
