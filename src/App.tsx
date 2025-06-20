@@ -12,7 +12,7 @@ function App() {
   };
 
   return (
-    <div className="relative min-h-screen w-full overflow-hidden">
+    <div className="relative min-h-screen w-full overflow-x-hidden">
       {/* Fondo gradiente global y manchas creativas */}
       <div className="fixed inset-0 -z-10 w-full h-full">
         <div className="absolute inset-0 w-full h-full bg-gradient-to-br from-black via-blue-900 to-blue-600" />
