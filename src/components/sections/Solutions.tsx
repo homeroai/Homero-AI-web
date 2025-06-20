@@ -61,18 +61,18 @@ export default function SolutionsSection() {
   const [selected, setSelected] = useState<number | null>(null);
 
   return (
-    <section className="py-20 px-4 bg-transparent">
+    <section className="py-12 sm:py-20 px-2 sm:px-4 bg-transparent">
       <div className="max-w-5xl mx-auto flex flex-col items-center">
         {/* Selector de desafío */}
-        <h2 className="text-2xl md:text-3xl font-bold text-white mb-4 text-center">
+        <h2 className="text-lg sm:text-2xl md:text-3xl font-bold text-white mb-4 text-center">
           ¿Cuál es el principal desafío de tu clínica hoy?
         </h2>
-        <div className="flex flex-wrap gap-3 mb-10 justify-center">
+        <div className="flex flex-wrap gap-2 sm:gap-3 mb-8 sm:mb-10 justify-center">
           {challenges.map((ch, idx) => (
             <button
               key={ch.key}
               onClick={() => setSelected(ch.solutionIdx)}
-              className={`px-5 py-2 rounded-full font-semibold text-sm transition-all duration-200 border
+              className={`px-4 sm:px-5 py-2 rounded-full font-semibold text-xs sm:text-sm transition-all duration-200 border
                 ${
                   selected === ch.solutionIdx
                     ? "bg-homero-purpleLight text-white border-homero-purpleLight shadow-lg scale-105"
@@ -86,13 +86,13 @@ export default function SolutionsSection() {
         </div>
 
         {/* Cards de soluciones */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-8 w-full">
           {solutions.map((sol, idx) => (
             <motion.div
               key={sol.title}
               layout
               transition={{ type: "spring", stiffness: 400, damping: 30 }}
-              className={`relative rounded-2xl p-7 flex flex-col items-center text-center bg-gradient-to-br ${sol.color} shadow-xl border-2 transition-all duration-300 cursor-pointer
+              className={`relative rounded-2xl p-5 sm:p-7 flex flex-col items-center text-center bg-gradient-to-br ${sol.color} shadow-xl border-2 transition-all duration-300 cursor-pointer
                 ${
                   selected === idx
                     ? "scale-105 border-white/80 z-10 shadow-2xl ring-4 ring-homero-purpleLight"
@@ -103,14 +103,14 @@ export default function SolutionsSection() {
               aria-selected={selected === idx}
             >
               <div
-                className={`mb-4 rounded-full bg-black/30 p-4 border-2 border-white/20 shadow-lg transition-all duration-300 ${
+                className={`mb-4 rounded-full bg-black/30 p-3 sm:p-4 border-2 border-white/20 shadow-lg transition-all duration-300 ${
                   selected === idx ? "scale-110 border-white/60" : ""
                 }`}
               >
-                <Icon name={sol.icon} size={36} className="text-white" />
+                <Icon name={sol.icon} size={28} className="sm:text-[36px] text-white" />
               </div>
-              <h3 className="text-xl font-bold text-white mb-2">{sol.title}</h3>
-              <p className="text-white/90 text-base">{sol.desc}</p>
+              <h3 className="text-base sm:text-xl font-bold text-white mb-2">{sol.title}</h3>
+              <p className="text-white/90 text-sm sm:text-base">{sol.desc}</p>
             </motion.div>
           ))}
         </div>

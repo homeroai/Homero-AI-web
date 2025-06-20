@@ -6,11 +6,17 @@ import TechBackground from '@/components/ui/TechBackground';
 import GradientText from '../reactbits/GradientText';
 
 // Hook para efecto typewriter con parte fija y parte variable
-function useTypewriterAlternating(fixed: string, variants: string[], speed = 20, pause = 1500) {
+function useTypewriterAlternating(
+  fixed: string,
+  variants: string[],
+  speed = 20,
+  pauseBeforeDelete = 1500,
+  pauseBeforeType = 1500
+) {
   const [displayed, setDisplayed] = useState(fixed);
   const [variantIdx, setVariantIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
-  const [phase, setPhase] = useState<'typing'|'pausing'|'deleting'>('typing');
+  const [phase, setPhase] = useState<'typing'|'pausing'|'deleting'|'waiting'>('typing');
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -27,7 +33,7 @@ function useTypewriterAlternating(fixed: string, variants: string[], speed = 20,
     } else if (phase === 'pausing') {
       timeout = setTimeout(() => {
         setPhase('deleting');
-      }, pause);
+      }, pauseBeforeDelete);
     } else if (phase === 'deleting') {
       if (charIdx > 0) {
         timeout = setTimeout(() => {
@@ -35,12 +41,16 @@ function useTypewriterAlternating(fixed: string, variants: string[], speed = 20,
           setCharIdx(charIdx - 1);
         }, speed);
       } else {
+        setPhase('waiting');
+      }
+    } else if (phase === 'waiting') {
+      timeout = setTimeout(() => {
         setVariantIdx((variantIdx + 1) % variants.length);
         setPhase('typing');
-      }
+      }, pauseBeforeType);
     }
     return () => clearTimeout(timeout);
-  }, [charIdx, phase, variantIdx, fixed, variants, speed, pause]);
+  }, [charIdx, phase, variantIdx, fixed, variants, speed, pauseBeforeDelete, pauseBeforeType]);
 
   // Inicializa el texto fijo al principio
   useEffect(() => {
@@ -126,12 +136,13 @@ export default function Hero() {
     'Optimiza citas y ',
     ['reduce no-shows', 'mejora la experiencia del paciente', 'mejora tu tasa de asistencia', 'automatiza tus recordatorios'],
     45, // velocidad intermedia para escribir y borrar
-    2000 // pausa de 2 segundos
+    2000, // pausa después de escribir antes de borrar
+    2000  // pausa después de borrar antes de volver a escribir
   );
 
   return (
     <section 
-      className="relative min-h-screen w-full flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-x-hidden overflow-y-auto"
       role="banner"
       aria-label="Hero section"
     >
@@ -140,7 +151,7 @@ export default function Hero() {
       <AnimatedShapeBlur />
 
       {/* Contenedor principal para el contenido del Hero */}
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-20 flex flex-col items-center justify-center text-center">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col items-center justify-center text-center">
         <motion.div
           key="content"
           initial={{ opacity: 0, scale: 0.95 }}
@@ -153,10 +164,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="mb-6"
+            className="mb-4 sm:mb-6"
           >
             <GradientText
-              className="text-xs md:text-sm lg:text-base font-bold tracking-wide uppercase"
+              className="text-xs sm:text-sm lg:text-base font-bold tracking-wide uppercase"
               colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
               showBorder={true}
             >
@@ -169,7 +180,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className={`text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight mb-6 transition-all duration-1000 ${
+            className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight mb-4 sm:mb-6 transition-all duration-1000 ${
               showGlow ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]' : 'drop-shadow-[0_0_5px_rgba(255,255,255,0.1)]'
             }`}
           >
@@ -181,7 +192,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
-            className="text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug mb-8 max-w-xl mx-auto text-center"
+            className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug mb-6 sm:mb-8 max-w-xs sm:max-w-xl mx-auto text-center"
           >
             <span className="bg-clip-text text-transparent animate-gradient bg-gradient-to-r from-homero-purpleLight via-white to-homero-purpleLight">
               {typewriterText}
@@ -195,7 +206,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4 }}
-            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-10 rounded-full text-lg shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between gap-3 min-w-[280px]"
+            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between gap-3 min-w-[180px] sm:min-w-[280px] w-full sm:w-auto"
             onClick={() => setShowModal(true)}
             aria-label="Ponte en contacto"
           >
