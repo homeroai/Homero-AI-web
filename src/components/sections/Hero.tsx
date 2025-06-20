@@ -6,11 +6,17 @@ import TechBackground from '@/components/ui/TechBackground';
 import GradientText from '../reactbits/GradientText';
 
 // Hook para efecto typewriter con parte fija y parte variable
-function useTypewriterAlternating(fixed: string, variants: string[], speed = 20, pause = 1500) {
+function useTypewriterAlternating(
+  fixed: string,
+  variants: string[],
+  speed = 20,
+  pauseBeforeDelete = 1500,
+  pauseBeforeType = 1500
+) {
   const [displayed, setDisplayed] = useState(fixed);
   const [variantIdx, setVariantIdx] = useState(0);
   const [charIdx, setCharIdx] = useState(0);
-  const [phase, setPhase] = useState<'typing'|'pausing'|'deleting'>('typing');
+  const [phase, setPhase] = useState<'typing'|'pausing'|'deleting'|'waiting'>('typing');
 
   useEffect(() => {
     let timeout: NodeJS.Timeout;
@@ -27,7 +33,7 @@ function useTypewriterAlternating(fixed: string, variants: string[], speed = 20,
     } else if (phase === 'pausing') {
       timeout = setTimeout(() => {
         setPhase('deleting');
-      }, pause);
+      }, pauseBeforeDelete);
     } else if (phase === 'deleting') {
       if (charIdx > 0) {
         timeout = setTimeout(() => {
@@ -35,12 +41,16 @@ function useTypewriterAlternating(fixed: string, variants: string[], speed = 20,
           setCharIdx(charIdx - 1);
         }, speed);
       } else {
+        setPhase('waiting');
+      }
+    } else if (phase === 'waiting') {
+      timeout = setTimeout(() => {
         setVariantIdx((variantIdx + 1) % variants.length);
         setPhase('typing');
-      }
+      }, pauseBeforeType);
     }
     return () => clearTimeout(timeout);
-  }, [charIdx, phase, variantIdx, fixed, variants, speed, pause]);
+  }, [charIdx, phase, variantIdx, fixed, variants, speed, pauseBeforeDelete, pauseBeforeType]);
 
   // Inicializa el texto fijo al principio
   useEffect(() => {
@@ -126,7 +136,8 @@ export default function Hero() {
     'Optimiza citas y ',
     ['reduce no-shows', 'mejora la experiencia del paciente', 'mejora tu tasa de asistencia', 'automatiza tus recordatorios'],
     45, // velocidad intermedia para escribir y borrar
-    2000 // pausa de 2 segundos
+    2000, // pausa después de escribir antes de borrar
+    2000  // pausa después de borrar antes de volver a escribir
   );
 
   return (
