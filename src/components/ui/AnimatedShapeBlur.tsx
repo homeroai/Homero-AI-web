@@ -4,13 +4,13 @@ import { motion } from 'framer-motion';
 export default function AnimatedShapeBlur() {
   return (
     <motion.div
-      className="absolute inset-0 flex items-center justify-center pointer-events-none"
+      className="absolute inset-0 flex items-center justify-center pointer-events-none overflow-hidden max-w-screen max-h-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1 }}
     >
       <motion.div
-        className="w-[800px] h-[800px] rounded-[100px] bg-gradient-to-br from-homero-purple/20 to-homero-purpleDark/20 backdrop-blur-3xl pointer-events-none"
+        className="w-[800px] h-[800px] max-w-full max-h-full rounded-[100px] bg-gradient-to-br from-homero-purple/20 to-homero-purpleDark/20 backdrop-blur-3xl pointer-events-none"
         animate={{
           scale: [1, 1.05, 1],
           opacity: [0.3, 0.4, 0.3],
@@ -22,7 +22,7 @@ export default function AnimatedShapeBlur() {
         }}
       />
       <motion.div
-        className="absolute w-[600px] h-[600px] rounded-[80px] bg-gradient-to-tr from-homero-purpleLight/10 to-homero-purple/10 backdrop-blur-2xl pointer-events-none"
+        className="absolute w-[600px] h-[600px] max-w-full max-h-full rounded-[80px] bg-gradient-to-tr from-homero-purpleLight/10 to-homero-purple/10 backdrop-blur-2xl pointer-events-none"
         animate={{
           scale: [1, 1.1, 1],
           opacity: [0.2, 0.3, 0.2],
