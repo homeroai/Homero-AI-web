@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import DashboardVisual from '@/components/ui/DashboardVisual'; // Importar el nuevo componente
+import DashboardVisual, { DashboardVisualMobile } from '@/components/ui/DashboardVisual'; // Importar ambas versiones
 
 export default function Services() {
   return (
@@ -15,7 +15,14 @@ export default function Services() {
         >
           ✨ Gestiona tu clinica con la IA ✨
         </motion.h2>
-        <DashboardVisual /> {/* Insertar el componente DashboardVisual */}
+        {/* Desktop/Tablet Dashboard */}
+        <div className="hidden sm:block w-full">
+          <DashboardVisual />
+        </div>
+        {/* Mobile Dashboard */}
+        <div className="block sm:hidden w-full">
+          <DashboardVisualMobile />
+        </div>
       </div>
     </section>
   );

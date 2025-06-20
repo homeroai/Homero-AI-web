@@ -151,4 +151,21 @@ export default function DashboardVisual() {
       </div>
     </motion.div>
   );
+}
+
+export function DashboardVisualMobile() {
+  return (
+    <div className="w-full max-w-md mx-auto bg-homero-purpleDark/60 rounded-xl shadow-xl p-6 flex flex-col items-center text-center border border-white/10">
+      <img src={HOLogo} alt="Homero AI Logo" className="h-10 mb-4 filter invert" />
+      <h3 className="text-lg font-bold text-white mb-2">Automatiza tu clínica con IA</h3>
+      <p className="text-white/80 text-sm mb-2">Gestiona pacientes, agenda y comunicaciones desde tu celular.</p>
+      <ul className="text-white/70 text-sm flex flex-col gap-1 mb-2">
+        <li>✔️ Recordatorios automáticos</li>
+        <li>✔️ Confirmaciones por WhatsApp/SMS</li>
+        <li>✔️ Agenda digital 24/7</li>
+        <li>✔️ Asistente de preguntas frecuentes</li>
+      </ul>
+      <span className="text-homero-purpleLight text-xs mt-2">Vista simplificada para móviles</span>
+    </div>
+  );
 } 
