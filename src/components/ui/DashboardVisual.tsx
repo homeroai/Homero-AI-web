@@ -32,7 +32,7 @@ export default function DashboardVisual() {
       {/* Sidebar */}
       <div className="w-64 bg-black/30 border-r border-white/10 p-6 flex flex-col">
         <div className="flex items-center gap-2 mb-8 select-none">
-          <img src={hologo} alt="Homero AI Logo" className="h-12 filter invert(100%)" />
+          <img src={hologo} alt="Homero AI Logo" className="h-12" />
           <span className="text-xl font-bold text-white">Homero AI</span>
         </div>
         <nav className="flex flex-col gap-4">
@@ -156,7 +156,7 @@ export default function DashboardVisual() {
 export function DashboardVisualMobile() {
   return (
     <div className="w-full max-w-md mx-auto bg-homero-purpleDark/60 rounded-xl shadow-xl p-6 flex flex-col items-center text-center border border-white/10">
-      <img src={hologo} alt="Homero AI Logo" className="h-10 mb-4 filter invert" />
+      <img src={hologo} alt="Homero AI Logo" className="h-10 mb-4" />
       <h3 className="text-lg font-bold text-white mb-2">Automatiza tu clínica con IA</h3>
       <p className="text-white/80 text-sm mb-2">Gestiona pacientes, agenda y comunicaciones desde tu celular.</p>
       <ul className="text-white/70 text-sm flex flex-col gap-1 mb-2">

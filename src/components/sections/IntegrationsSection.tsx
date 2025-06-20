@@ -106,7 +106,7 @@ export default function IntegrationsSection() {
                 transition: { duration: 2, repeat: Infinity }
               }}
             >
-              <img src={hologo} alt="Homero AI Logo" className="h-10 w-10 filter invert" />
+              <img src={hologo} alt="Homero AI Logo" className="h-10 w-10" />
             </motion.div>
           </div>
         </div>
