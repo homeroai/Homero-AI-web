@@ -146,9 +146,9 @@ export default function Hero() {
       role="banner"
       aria-label="Hero section"
     >
-      {/* Fondo con efectos */}
-      <TechBackground />
-      <AnimatedShapeBlur />
+      {/* Fondo con efectos desactivado temporalmente para aislar el problema de scroll */}
+      {/* <TechBackground /> */}
+      {/* <AnimatedShapeBlur /> */}
 
       {/* Contenedor principal para el contenido del Hero */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col items-center justify-center text-center">
