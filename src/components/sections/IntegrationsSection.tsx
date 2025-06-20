@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Icon } from '@/components/ui/Icon';
-import HOLogo from '@/assets/logos/HOLogo.png';
+import HOLogo from '@/assets/logos/hologo.png';
 
 export default function IntegrationsSection() {
   const integrations = [

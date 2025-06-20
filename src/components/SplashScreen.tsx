@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import HOLogo from '@/assets/logos/HOLogo.png';
+import HOLogo from '@/assets/logos/hologo.png';
 
 interface SplashScreenProps {
   onAnimationComplete: () => void;

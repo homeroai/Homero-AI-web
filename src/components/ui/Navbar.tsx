@@ -1,12 +1,15 @@
 import { motion } from 'framer-motion';
 import { Icon } from "./Icon";
-import HOLogo from '@/assets/logos/HOLogo.png';
+import React, { useEffect, useState } from 'react';
+import HOLogo from '@/assets/logos/hologo.png';
 
 interface NavbarProps {
   isAnimationComplete: boolean;
 }
 
 const Navbar = ({ isAnimationComplete }: NavbarProps) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+
   const navItems = [
     { name: 'Inicio', icon: 'Home' },
     { name: 'Soluciones', icon: 'Stethoscope' },
