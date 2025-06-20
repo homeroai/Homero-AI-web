@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
-import HOLogo from '@/assets/logos/hologo.png';
+import hologo from '@/assets/logos/hologo.png';
 
 interface SplashScreenProps {
   onAnimationComplete: () => void;
@@ -62,7 +62,7 @@ export default function SplashScreen({ onAnimationComplete }: SplashScreenProps)
       className="fixed inset-0 bg-gradient-to-b from-[#2A0338] via-[#4A0B6B] to-[#2A0338] flex items-center justify-center z-[9999]"
     >
       <motion.img
-        src={HOLogo}
+        src={hologo}
         alt="Homero AI Logo"
         initial={{ opacity: 0, scale: 0.5 }}
         animate={controls}

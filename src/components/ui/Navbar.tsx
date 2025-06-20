@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { Icon } from "./Icon";
 import React, { useEffect, useState } from 'react';
-import HOLogo from '@/assets/logos/hologo.png';
+import hologo from '@/assets/logos/hologo.png';
 
 interface NavbarProps {
   isAnimationComplete: boolean;
@@ -11,7 +11,7 @@ function NavbarMobile() {
   return (
     <nav className="fixed top-0 w-full z-50 px-3 py-2 bg-black/90 backdrop-blur-md border-b border-white/10 flex items-center justify-between">
       <div className="flex items-center gap-2">
-        <img src={HOLogo} alt="Homero AI Logo" className="h-10 filter invert" />
+        <img src={hologo} alt="Homero AI Logo" className="h-10 filter invert" />
         <span className="text-lg font-bold text-white">Homero AI</span>
       </div>
       <a href="#contact" className="bg-homero-purpleLight text-white rounded-full px-4 py-2 text-sm font-semibold shadow hover:bg-homero-purple transition-colors">Contacto</a>
@@ -47,7 +47,7 @@ const Navbar = ({ isAnimationComplete }: NavbarProps) => {
               whileTap={{ scale: 0.95 }}
             >
               <img 
-                src={HOLogo} 
+                src={hologo} 
                 alt="Homero AI Logo"
                 className="h-12 sm:h-16 filter invert"
               />

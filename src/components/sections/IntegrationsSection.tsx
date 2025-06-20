@@ -1,7 +1,7 @@
 import React, { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { Icon } from '@/components/ui/Icon';
-import HOLogo from '@/assets/logos/hologo.png';
+import hologo from '@/assets/logos/hologo.png';
 
 export default function IntegrationsSection() {
   const integrations = [
@@ -106,7 +106,7 @@ export default function IntegrationsSection() {
                 transition: { duration: 2, repeat: Infinity }
               }}
             >
-              <img src={HOLogo} alt="Homero AI Logo" className="h-10 w-10 filter invert" />
+              <img src={hologo} alt="Homero AI Logo" className="h-10 w-10 filter invert" />
             </motion.div>
           </div>
         </div>
