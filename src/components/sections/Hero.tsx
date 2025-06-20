@@ -142,7 +142,7 @@ export default function Hero() {
 
   return (
     <section 
-      className="relative min-h-screen w-full flex items-center justify-center overflow-x-hidden overflow-y-auto"
+      className="relative min-h-screen w-full flex items-center justify-center overflow-x-hidden"
       role="banner"
       aria-label="Hero section"
     >
