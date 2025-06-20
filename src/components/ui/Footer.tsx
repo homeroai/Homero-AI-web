@@ -10,10 +10,8 @@ export default function Footer() {
         </div>
 
         <div className="flex gap-6">
-          <a href="#" className="text-white/70 hover:text-homero-purpleLight transition-colors"><Icon name="Facebook" size={24} /></a>
-          <a href="#" className="text-white/70 hover:text-homero-purpleLight transition-colors"><Icon name="Twitter" size={24} /></a>
-          <a href="#" className="text-white/70 hover:text-homero-purpleLight transition-colors"><Icon name="Linkedin" size={24} /></a>
-          <a href="#" className="text-white/70 hover:text-homero-purpleLight transition-colors"><Icon name="Instagram" size={24} /></a>
+          <a href="https://www.facebook.com/profile.php?id=61576748128510" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-homero-purpleLight transition-colors"><Icon name="Facebook" size={24} /></a>
+          <a href="https://www.instagram.com/homeroai/" target="_blank" rel="noopener noreferrer" className="text-white/70 hover:text-homero-purpleLight transition-colors"><Icon name="Instagram" size={24} /></a>
         </div>
 
         <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-sm">

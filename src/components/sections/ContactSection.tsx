@@ -8,12 +8,46 @@ export default function ContactSection() {
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   
   const countryOptions = [
-    { code: '+56', name: 'Chile', flag: '🇨🇱' },
-    { code: '+54', name: 'Argentina', flag: '🇦🇷' },
-    { code: '+34', name: 'España', flag: '🇪🇸' },
-    { code: '+51', name: 'Perú', flag: '🇵🇪' },
-    { code: '+57', name: 'Colombia', flag: '🇨🇴' },
+    // América del Norte
     { code: '+1', name: 'USA', flag: '🇺🇸' },
+    { code: '+1', name: 'Canadá', flag: '🇨🇦' },
+    { code: '+52', name: 'México', flag: '🇲🇽' },
+    // América Central y Caribe
+    { code: '+501', name: 'Belice', flag: '🇧🇿' },
+    { code: '+506', name: 'Costa Rica', flag: '🇨🇷' },
+    { code: '+503', name: 'El Salvador', flag: '🇸🇻' },
+    { code: '+502', name: 'Guatemala', flag: '🇬🇹' },
+    { code: '+504', name: 'Honduras', flag: '🇭🇳' },
+    { code: '+505', name: 'Nicaragua', flag: '🇳🇮' },
+    { code: '+507', name: 'Panamá', flag: '🇵🇦' },
+    { code: '+1-268', name: 'Antigua y Barbuda', flag: '🇦🇬' },
+    { code: '+1-242', name: 'Bahamas', flag: '🇧🇸' },
+    { code: '+1-246', name: 'Barbados', flag: '🇧🇧' },
+    { code: '+53', name: 'Cuba', flag: '🇨🇺' },
+    { code: '+1-767', name: 'Dominica', flag: '🇩🇲' },
+    { code: '+1-809', name: 'Rep. Dominicana', flag: '🇩🇴' },
+    { code: '+1-473', name: 'Granada', flag: '🇬🇩' },
+    { code: '+509', name: 'Haití', flag: '🇭🇹' },
+    { code: '+1-876', name: 'Jamaica', flag: '🇯🇲' },
+    { code: '+1-869', name: 'San Cristóbal y Nieves', flag: '🇰🇳' },
+    { code: '+1-758', name: 'Santa Lucía', flag: '🇱🇨' },
+    { code: '+1-784', name: 'San Vicente y las Granadinas', flag: '🇻🇨' },
+    { code: '+1-868', name: 'Trinidad y Tobago', flag: '🇹🇹' },
+    // América del Sur
+    { code: '+54', name: 'Argentina', flag: '🇦🇷' },
+    { code: '+591', name: 'Bolivia', flag: '🇧🇴' },
+    { code: '+55', name: 'Brasil', flag: '🇧🇷' },
+    { code: '+56', name: 'Chile', flag: '🇨🇱' },
+    { code: '+57', name: 'Colombia', flag: '🇨🇴' },
+    { code: '+593', name: 'Ecuador', flag: '🇪🇨' },
+    { code: '+592', name: 'Guyana', flag: '🇬🇾' },
+    { code: '+595', name: 'Paraguay', flag: '🇵🇾' },
+    { code: '+51', name: 'Perú', flag: '🇵🇪' },
+    { code: '+597', name: 'Surinam', flag: '🇸🇷' },
+    { code: '+598', name: 'Uruguay', flag: '🇺🇾' },
+    { code: '+58', name: 'Venezuela', flag: '🇻🇪' },
+    // Otros
+    { code: '+34', name: 'España', flag: '🇪🇸' },
   ];
   const [country, setCountry] = useState(countryOptions[0]);
   const [localNumber, setLocalNumber] = useState('');
