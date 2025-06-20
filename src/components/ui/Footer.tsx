@@ -12,7 +12,7 @@ export default function Footer() {
           </div>
           <div className="flex items-center gap-2">
             <Icon name="Mail" size={16} />
-            <a href="mailto:homeroagent@gmail.com" className="hover:text-homero-purpleLight transition-colors">homeroagent@gmail.com</a>
+            <a href="mailto:contacto@homero.ai" className="hover:text-homero-purpleLight transition-colors">contacto@homero.ai</a>
           </div>
         </div>
 
@@ -26,8 +26,8 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col md:flex-row gap-2 md:gap-6 text-sm">
-          <a href="#" className="text-white/70 hover:text-homero-purpleLight transition-colors">Política de Privacidad</a>
-          <a href="#" className="text-white/70 hover:text-homero-purpleLight transition-colors">Términos de Servicio</a>
+          <a href="/politica-de-privacidad" className="text-white/70 hover:text-homero-purpleLight transition-colors">Política de Privacidad</a>
+          <a href="/terminos-de-servicio" className="text-white/70 hover:text-homero-purpleLight transition-colors">Términos de Servicio</a>
         </div>
       </div>
     </footer>
