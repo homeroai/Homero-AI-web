@@ -24,10 +24,10 @@ const Navbar = ({ isAnimationComplete }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Inicio', icon: 'Home' },
-    { name: 'Soluciones', icon: 'Stethoscope' },
-    { name: 'Casos de Éxito', icon: 'Trophy' },
-    { name: 'Contacto', icon: 'Mail' }
+    { name: 'Inicio', icon: 'Home', href: '#inicio' },
+    { name: 'Soluciones', icon: 'Stethoscope', href: '#soluciones' },
+    { name: 'Casos de Éxito', icon: 'Trophy', href: '#casos-de-exito' },
+    { name: 'Contacto', icon: 'Mail', href: '#contact' }
   ];
 
   return (
@@ -55,10 +55,10 @@ const Navbar = ({ isAnimationComplete }: NavbarProps) => {
             </motion.div>
             {/* Menú horizontal en desktop */}
             <div className="hidden md:flex space-x-8">
-              {navItems.map(({ name, icon }) => (
+              {navItems.map(({ name, icon, href }) => (
                 <motion.a
                   key={name}
-                  href={`#${name.toLowerCase().replace(/ /g, '').replace(/á/g, 'a').replace(/é/g, 'e').replace(/í/g, 'i').replace(/ó/g, 'o').replace(/ú/g, 'u')}`}
+                  href={href}
                   className="nav-link flex items-center gap-2 text-white/90 hover:text-primary transition-colors"
                   whileHover={{ scale: 1.1 }}
                   whileTap={{ scale: 0.95 }}
