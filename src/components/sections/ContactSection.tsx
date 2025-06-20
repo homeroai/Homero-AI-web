@@ -49,7 +49,7 @@ export default function ContactSection() {
     // Otros
     { code: '+34', name: 'España', flag: '🇪🇸' },
   ];
-  const [country, setCountry] = useState(countryOptions[0]);
+  const [country, setCountry] = useState(countryOptions.find(c => c.name === 'Chile') || countryOptions[0]);
   const [localNumber, setLocalNumber] = useState('');
 
   function validate() {

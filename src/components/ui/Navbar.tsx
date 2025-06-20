@@ -7,14 +7,30 @@ interface NavbarProps {
   isAnimationComplete: boolean;
 }
 
-function NavbarMobile() {
+interface NavItem {
+  name: string;
+  icon: string;
+  href: string;
+}
+
+interface NavbarMobileProps {
+  navItems: NavItem[];
+}
+
+function NavbarMobile({ navItems }: NavbarMobileProps) {
+  const contactItem = navItems.find(item => item.name === 'Contacto');
+
   return (
     <nav className="fixed top-0 w-full z-50 px-3 py-2 bg-black/90 backdrop-blur-md border-b border-white/10 flex items-center justify-between">
       <div className="flex items-center gap-2">
         <img src={hologo} alt="Homero AI Logo" className="h-10" />
         <span className="text-lg font-bold text-white">Homero AI</span>
       </div>
-      <a href="#contact" className="bg-homero-purpleLight text-white rounded-full px-4 py-2 text-sm font-semibold shadow hover:bg-homero-purple transition-colors">Contacto</a>
+      {contactItem && (
+         <a href={contactItem.href} className="bg-homero-purpleLight text-white rounded-full px-4 py-2 text-sm font-semibold shadow hover:bg-homero-purple transition-colors">
+          {contactItem.name}
+         </a>
+      )}
     </nav>
   );
 }
@@ -24,9 +40,8 @@ const Navbar = ({ isAnimationComplete }: NavbarProps) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const navItems = [
-    { name: 'Inicio', icon: 'Home', href: '#inicio' },
-    { name: 'Soluciones', icon: 'Stethoscope', href: '#soluciones' },
-    { name: 'Casos de Éxito', icon: 'Trophy', href: '#casos-de-exito' },
+    { name: 'Inicio', icon: 'Home', href: '#' },
+    { name: 'Soluciones', icon: 'Stethoscope', href: '#solutions' },
     { name: 'Contacto', icon: 'Mail', href: '#contact' }
   ];
 
@@ -73,7 +88,7 @@ const Navbar = ({ isAnimationComplete }: NavbarProps) => {
       </div>
       {/* Mobile Navbar */}
       <div className="block sm:hidden">
-        <NavbarMobile />
+        <NavbarMobile navItems={navItems} />
       </div>
     </>
   );
