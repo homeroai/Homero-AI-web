@@ -142,7 +142,7 @@ export default function Hero() {
 
   return (
     <section 
-      className="relative min-h-screen w-full flex items-center justify-center overflow-x-hidden"
+      className="relative min-h-[80vh] sm:min-h-screen w-full flex items-center justify-center overflow-x-hidden"
       role="banner"
       aria-label="Hero section"
     >
@@ -152,6 +152,7 @@ export default function Hero() {
 
       {/* Contenedor principal para el contenido del Hero */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col items-center justify-center text-center">
+        {/* Menor padding en móvil para evitar scroll innecesario */}
         <motion.div
           key="content"
           initial={{ opacity: 0, scale: 0.95 }}
