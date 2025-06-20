@@ -27,15 +27,15 @@ export default function GradientText({
     return (
         <span
             className={`inline-block font-medium bg-cover animate-gradient ${className}`}
-            style={{
-                ...gradientStyle,
-                backgroundClip: "text",
-                WebkitBackgroundClip: "text",
+                style={{
+                    ...gradientStyle,
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
                 color: "transparent",
-                backgroundSize: "300% 100%",
-            }}
-        >
-            {children}
+                    backgroundSize: "300% 100%",
+                }}
+            >
+                {children}
         </span>
     );
 }
