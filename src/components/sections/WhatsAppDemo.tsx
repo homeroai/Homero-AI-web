@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence, useInView } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Icon } from '@/components/ui/Icon';
 import Typewriter from '@/components/ui/Typewriter';
 
@@ -37,20 +37,25 @@ export default function WhatsAppDemo() {
   const [messages, setMessages] = useState<MessageData[]>([]);
   const [isTyping, setIsTyping] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
-  
-  const sectionRef = useRef<HTMLElement>(null);
-  const isInView = useInView(sectionRef, { once: true, amount: 0.4 });
 
   useEffect(() => {
-    if (isInView && messages.length < conversation.length && !isTyping) {
+    // Reset animation logic on mount, just in case
+    setMessages([]);
+    // Start the conversation after a brief moment
+    const startTimeout = setTimeout(() => setIsTyping(false), 500);
+    return () => clearTimeout(startTimeout);
+  }, []);
+
+  useEffect(() => {
+    if (messages.length < conversation.length && !isTyping) {
       setIsTyping(true);
       const timer = setTimeout(() => {
         setMessages(prev => [...prev, conversation[messages.length]]);
-      }, messages.length === 0 ? 1000 : 1800);
+      }, messages.length === 0 ? 500 : 1800); // Shorter delay for first message, longer for subsequent ones
 
       return () => clearTimeout(timer);
     }
-  }, [isInView, messages, isTyping]);
+  }, [messages, isTyping]);
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -63,19 +68,8 @@ export default function WhatsAppDemo() {
   };
 
   return (
-    <section 
-      ref={sectionRef} 
-      id="demo" 
-      className={`py-16 sm:py-24 transition-colors duration-500 ${isInView ? 'bg-green-900/20' : 'bg-transparent'}`}
-    >
+    <section id="demo" className="py-16 sm:py-24 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-        {/* DEBUGGING TEXT */}
-        <div className="absolute top-0 left-0 bg-yellow-400 text-black p-2 rounded-br-lg text-xs z-50">
-          <p>isInView: {isInView ? 'true' : 'false'}</p>
-          <p>isTyping: {isTyping ? 'true' : 'false'}</p>
-          <p>Messages: {messages.length}</p>
-        </div>
-        
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
