@@ -1,6 +1,6 @@
 import Navbar from '@/components/ui/Navbar'
 import Hero from '@/components/sections/Hero'
-import Services from '@/components/sections/Services'
+import WhatsAppDemo from '@/components/sections/WhatsAppDemo'
 import IntegrationsSection from '@/components/sections/IntegrationsSection'
 import { FeaturesSection } from '@/components/sections/FeaturesSection'
 import SolutionsSection from '@/components/sections/Solutions'
@@ -17,7 +17,7 @@ export default function Home({ isAnimationComplete }: HomeProps) {
     <div className="relative min-h-screen text-white overflow-hidden">
       <Navbar isAnimationComplete={isAnimationComplete} />
       <Hero />
-      <Services />
+      <WhatsAppDemo />
       <IntegrationsSection />
       <FeaturesSection />
       <SolutionsSection />
