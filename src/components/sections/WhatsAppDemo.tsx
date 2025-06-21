@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { Icon } from '@/components/ui/Icon';
+import Typewriter from '@/components/ui/Typewriter';
 
 interface MessageData {
   sender: 'patient' | 'ai';
@@ -8,16 +9,14 @@ interface MessageData {
 }
 
 const conversation: MessageData[] = [
-  { sender: 'patient', text: 'Hola, me gustaría agendar una hora para una limpieza dental.' },
-  { sender: 'ai', text: '¡Hola! Claro, con gusto. Tenemos disponibilidad mañana a las 10:00 AM y a las 3:00 PM. ¿Te acomoda alguna de esas horas?' },
-  { sender: 'patient', text: 'La de las 10:00 AM me viene perfecta.' },
-  { sender: 'ai', text: 'Excelente. ¿A nombre de quién agendo la cita?' },
-  { sender: 'patient', text: 'Catalina Rojas, por favor.' },
-  { sender: 'ai', text: 'Perfecto, Catalina. Tu cita para limpieza dental ha sido agendada para mañana a las 10:00 AM. Recibirás un recordatorio. ¿Necesitas algo más?' },
-  { sender: 'patient', text: 'No, eso es todo. ¡Muchas gracias!' },
+  { sender: 'patient', text: 'Hola, ¿puedo agendar una limpieza dental?' },
+  { sender: 'ai', text: '¡Hola! Claro 😊 Tengo horas este jueves a las 10:00 y viernes a las 15:00. ¿Cuál prefieres?' },
+  { sender: 'patient', text: 'El viernes a las 15:00, por favor.' },
+  { sender: 'ai', text: 'Perfecto, te agendé para el viernes 15:00. Recibirás un recordatorio. ¿Algo más?' },
+  { sender: 'patient', text: 'No, gracias. ¡Muy amable!' },
 ];
 
-const Message = ({ msg }: { msg: MessageData }) => (
+const Message = ({ msg, onComplete }: { msg: MessageData; onComplete: () => void }) => (
   <motion.div
     layout
     initial={{ opacity: 0, scale: 0.8, y: 20 }}
@@ -30,30 +29,28 @@ const Message = ({ msg }: { msg: MessageData }) => (
         : 'self-start bg-white text-black'
     }`}
   >
-    {msg.text}
+    <Typewriter text={msg.text} onComplete={onComplete} />
   </motion.div>
 );
 
 export default function WhatsAppDemo() {
   const [messages, setMessages] = useState<MessageData[]>([]);
+  const [isTyping, setIsTyping] = useState(false);
   const chatContainerRef = useRef<HTMLDivElement>(null);
+  
+  const sectionRef = useRef<HTMLElement>(null);
+  const isInView = useInView(sectionRef, { once: true, amount: 0.4 });
 
   useEffect(() => {
-    // Reset animation on component mount
-    setMessages([]);
-    
-    let index = 0;
-    const interval = setInterval(() => {
-      if (index < conversation.length) {
-        setMessages(prev => [...prev, conversation[index]]);
-        index++;
-      } else {
-        clearInterval(interval);
-      }
-    }, 2000); // Delay between messages
+    if (isInView && messages.length < conversation.length && !isTyping) {
+      setIsTyping(true);
+      const timer = setTimeout(() => {
+        setMessages(prev => [...prev, conversation[messages.length]]);
+      }, messages.length === 0 ? 1000 : 1800);
 
-    return () => clearInterval(interval);
-  }, []);
+      return () => clearTimeout(timer);
+    }
+  }, [isInView, messages, isTyping]);
 
   useEffect(() => {
     if (chatContainerRef.current) {
@@ -61,8 +58,12 @@ export default function WhatsAppDemo() {
     }
   }, [messages]);
 
+  const handleTypingComplete = () => {
+    setIsTyping(false);
+  };
+
   return (
-    <section id="demo" className="py-16 sm:py-24 bg-transparent">
+    <section ref={sectionRef} id="demo" className="py-16 sm:py-24 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -110,7 +111,7 @@ export default function WhatsAppDemo() {
             >
               <AnimatePresence>
                 {messages.map((msg, index) => (
-                  <Message key={index} msg={msg} />
+                  <Message key={index} msg={msg} onComplete={handleTypingComplete} />
                 ))}
               </AnimatePresence>
             </div>
