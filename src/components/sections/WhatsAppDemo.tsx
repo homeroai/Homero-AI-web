@@ -63,8 +63,19 @@ export default function WhatsAppDemo() {
   };
 
   return (
-    <section ref={sectionRef} id="demo" className="py-16 sm:py-24 bg-transparent">
+    <section 
+      ref={sectionRef} 
+      id="demo" 
+      className={`py-16 sm:py-24 transition-colors duration-500 ${isInView ? 'bg-green-900/20' : 'bg-transparent'}`}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
+        {/* DEBUGGING TEXT */}
+        <div className="absolute top-0 left-0 bg-yellow-400 text-black p-2 rounded-br-lg text-xs z-50">
+          <p>isInView: {isInView ? 'true' : 'false'}</p>
+          <p>isTyping: {isTyping ? 'true' : 'false'}</p>
+          <p>Messages: {messages.length}</p>
+        </div>
+        
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
