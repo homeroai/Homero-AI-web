@@ -9,45 +9,45 @@ export default function ContactSection() {
   
   const countryOptions = [
     // América del Norte
-    { code: '+1', name: 'USA', flag: '🇺🇸' },
-    { code: '+1', name: 'Canadá', flag: '🇨🇦' },
-    { code: '+52', name: 'México', flag: '🇲🇽' },
+    { id: 'usa', code: '+1', name: 'USA', flag: '🇺🇸' },
+    { id: 'canada', code: '+1', name: 'Canadá', flag: '🇨🇦' },
+    { id: 'mexico', code: '+52', name: 'México', flag: '🇲🇽' },
     // América Central y Caribe
-    { code: '+501', name: 'Belice', flag: '🇧🇿' },
-    { code: '+506', name: 'Costa Rica', flag: '🇨🇷' },
-    { code: '+503', name: 'El Salvador', flag: '🇸🇻' },
-    { code: '+502', name: 'Guatemala', flag: '🇬🇹' },
-    { code: '+504', name: 'Honduras', flag: '🇭🇳' },
-    { code: '+505', name: 'Nicaragua', flag: '🇳🇮' },
-    { code: '+507', name: 'Panamá', flag: '🇵🇦' },
-    { code: '+1-268', name: 'Antigua y Barbuda', flag: '🇦🇬' },
-    { code: '+1-242', name: 'Bahamas', flag: '🇧🇸' },
-    { code: '+1-246', name: 'Barbados', flag: '🇧🇧' },
-    { code: '+53', name: 'Cuba', flag: '🇨🇺' },
-    { code: '+1-767', name: 'Dominica', flag: '🇩🇲' },
-    { code: '+1-809', name: 'Rep. Dominicana', flag: '🇩🇴' },
-    { code: '+1-473', name: 'Granada', flag: '🇬🇩' },
-    { code: '+509', name: 'Haití', flag: '🇭🇹' },
-    { code: '+1-876', name: 'Jamaica', flag: '🇯🇲' },
-    { code: '+1-869', name: 'San Cristóbal y Nieves', flag: '🇰🇳' },
-    { code: '+1-758', name: 'Santa Lucía', flag: '🇱🇨' },
-    { code: '+1-784', name: 'San Vicente y las Granadinas', flag: '🇻🇨' },
-    { code: '+1-868', name: 'Trinidad y Tobago', flag: '🇹🇹' },
+    { id: 'belize', code: '+501', name: 'Belice', flag: '🇧🇿' },
+    { id: 'costa-rica', code: '+506', name: 'Costa Rica', flag: '🇨🇷' },
+    { id: 'el-salvador', code: '+503', name: 'El Salvador', flag: '🇸🇻' },
+    { id: 'guatemala', code: '+502', name: 'Guatemala', flag: '🇬🇹' },
+    { id: 'honduras', code: '+504', name: 'Honduras', flag: '🇭🇳' },
+    { id: 'nicaragua', code: '+505', name: 'Nicaragua', flag: '🇳🇮' },
+    { id: 'panama', code: '+507', name: 'Panamá', flag: '🇵🇦' },
+    { id: 'antigua-barbuda', code: '+1-268', name: 'Antigua y Barbuda', flag: '🇦🇬' },
+    { id: 'bahamas', code: '+1-242', name: 'Bahamas', flag: '🇧🇸' },
+    { id: 'barbados', code: '+1-246', name: 'Barbados', flag: '🇧🇧' },
+    { id: 'cuba', code: '+53', name: 'Cuba', flag: '🇨🇺' },
+    { id: 'dominica', code: '+1-767', name: 'Dominica', flag: '🇩🇲' },
+    { id: 'republica-dominicana', code: '+1-809', name: 'Rep. Dominicana', flag: '🇩🇴' },
+    { id: 'granada', code: '+1-473', name: 'Granada', flag: '🇬🇩' },
+    { id: 'haiti', code: '+509', name: 'Haití', flag: '🇭🇹' },
+    { id: 'jamaica', code: '+1-876', name: 'Jamaica', flag: '🇯🇲' },
+    { id: 'san-cristobal-nieves', code: '+1-869', name: 'San Cristóbal y Nieves', flag: '🇰🇳' },
+    { id: 'santa-lucia', code: '+1-758', name: 'Santa Lucía', flag: '🇱🇨' },
+    { id: 'san-vicente-granadinas', code: '+1-784', name: 'San Vicente y las Granadinas', flag: '🇻🇨' },
+    { id: 'trinidad-tobago', code: '+1-868', name: 'Trinidad y Tobago', flag: '🇹🇹' },
     // América del Sur
-    { code: '+54', name: 'Argentina', flag: '🇦🇷' },
-    { code: '+591', name: 'Bolivia', flag: '🇧🇴' },
-    { code: '+55', name: 'Brasil', flag: '🇧🇷' },
-    { code: '+56', name: 'Chile', flag: '🇨🇱' },
-    { code: '+57', name: 'Colombia', flag: '🇨🇴' },
-    { code: '+593', name: 'Ecuador', flag: '🇪🇨' },
-    { code: '+592', name: 'Guyana', flag: '🇬🇾' },
-    { code: '+595', name: 'Paraguay', flag: '🇵🇾' },
-    { code: '+51', name: 'Perú', flag: '🇵🇪' },
-    { code: '+597', name: 'Surinam', flag: '🇸🇷' },
-    { code: '+598', name: 'Uruguay', flag: '🇺🇾' },
-    { code: '+58', name: 'Venezuela', flag: '🇻🇪' },
+    { id: 'argentina', code: '+54', name: 'Argentina', flag: '🇦🇷' },
+    { id: 'bolivia', code: '+591', name: 'Bolivia', flag: '🇧🇴' },
+    { id: 'brasil', code: '+55', name: 'Brasil', flag: '🇧🇷' },
+    { id: 'chile', code: '+56', name: 'Chile', flag: '🇨🇱' },
+    { id: 'colombia', code: '+57', name: 'Colombia', flag: '🇨🇴' },
+    { id: 'ecuador', code: '+593', name: 'Ecuador', flag: '🇪🇨' },
+    { id: 'guyana', code: '+592', name: 'Guyana', flag: '🇬🇾' },
+    { id: 'paraguay', code: '+595', name: 'Paraguay', flag: '🇵🇾' },
+    { id: 'peru', code: '+51', name: 'Perú', flag: '🇵🇪' },
+    { id: 'surinam', code: '+597', name: 'Surinam', flag: '🇸🇷' },
+    { id: 'uruguay', code: '+598', name: 'Uruguay', flag: '🇺🇾' },
+    { id: 'venezuela', code: '+58', name: 'Venezuela', flag: '🇻🇪' },
     // Otros
-    { code: '+34', name: 'España', flag: '🇪🇸' },
+    { id: 'espana', code: '+34', name: 'España', flag: '🇪🇸' },
   ];
   const [country, setCountry] = useState(countryOptions.find(c => c.name === 'Chile') || countryOptions[0]);
   const [localNumber, setLocalNumber] = useState('');
@@ -179,15 +179,15 @@ export default function ContactSection() {
           <div className="flex gap-2">
             <select
               className="rounded-lg px-2 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight"
-              value={country.code}
+              value={country.id}
               onChange={e => {
-                const selected = countryOptions.find(c => c.code === e.target.value);
+                const selected = countryOptions.find(c => c.id === e.target.value);
                 if (selected) setCountry(selected);
               }}
               style={{ minWidth: 90 }}
             >
               {countryOptions.map(opt => (
-                <option key={opt.code} value={opt.code}>{opt.flag} {opt.code}</option>
+                <option key={opt.id} value={opt.id}>{opt.flag} {opt.name}</option>
               ))}
             </select>
             <input
