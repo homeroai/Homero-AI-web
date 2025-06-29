@@ -1,8 +1,15 @@
 import LegalLayout from "@/components/LegalLayout";
+import { Icon } from '@/components/ui/Icon';
 
 export default function PoliticaPrivacidad() {
   return (
     <LegalLayout>
+      <div className="flex items-center justify-start mb-8">
+        <a href="/" className="flex items-center gap-2 bg-black hover:bg-gray-900 text-white font-bold py-2 px-5 rounded-full shadow-lg transition-all duration-300">
+          <Icon name="Home" size={22} />
+          Regresar a Homero
+        </a>
+      </div>
       <h1 className="text-3xl font-bold mb-6">Política de Privacidad</h1>
       <p>
         En Homero AI SpA (“nosotros”, “nuestro” o “la Empresa”), valoramos y respetamos tu privacidad.
@@ -43,7 +50,7 @@ export default function PoliticaPrivacidad() {
         Puedes solicitar en cualquier momento acceso, rectificación o eliminación de tus datos
         enviando un correo a{" "}
         <a href="mailto:contacto@homero.ai" className="font-bold underline">
-          contacto@homero.ai
+          homeroagent@gmail.com
         </a>
         .
       </p>

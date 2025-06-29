@@ -41,7 +41,8 @@ const Navbar = ({ isAnimationComplete }: NavbarProps) => {
 
   const navItems = [
     { name: 'Inicio', icon: 'Home', href: '#' },
-    { name: 'Soluciones', icon: 'Stethoscope', href: '#solutions' },
+    { name: 'Soluciones', icon: 'Stethoscope', href: '#features' },
+    { name: 'FAQs', icon: 'HelpCircle', href: '#faqs' },
     { name: 'Contacto', icon: 'Mail', href: '#contact' }
   ];
 

@@ -1,8 +1,16 @@
 import LegalLayout from "@/components/LegalLayout";
+import { Icon } from '@/components/ui/Icon';
 
 export default function TerminosDeServicio() {
   return (
     <LegalLayout>
+      <div className="flex items-center justify-start mb-8">
+        <a href="/" className="flex items-center gap-2 bg-black hover:bg-gray-900 text-white font-bold py-2 px-5 rounded-full shadow-lg transition-all duration-300">
+          <Icon name="Home" size={22} />
+          Regresar a Homero
+        </a>
+      </div>
+
       <h1 className="text-3xl font-bold mb-6">Términos de Servicio</h1>
 
       <p>

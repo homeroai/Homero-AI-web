@@ -3,7 +3,7 @@ import { motion, useAnimation } from 'framer-motion';
 import { Icon } from '@/components/ui/Icon';
 import AnimatedShapeBlur from '@/components/ui/AnimatedShapeBlur';
 import TechBackground from '@/components/ui/TechBackground';
-import GradientText from '../reactbits/GradientText';
+import WhatsAppDemo from './WhatsAppDemo';
 
 // Hook para efecto typewriter con parte fija y parte variable
 function useTypewriterAlternating(
@@ -62,6 +62,43 @@ function useTypewriterAlternating(
   return displayed;
 }
 
+// Agrega el componente GradientText aquí
+interface GradientTextProps {
+    children: React.ReactNode;
+    className?: string;
+    colors?: string[];
+    animationSpeed?: number;
+    showBorder?: boolean;
+}
+
+function GradientText({
+    children,
+    className = "",
+    colors = ["#ffaa40", "#9c40ff", "#ffaa40"],
+    animationSpeed = 8,
+    showBorder = false,
+}: GradientTextProps) {
+    const gradientStyle = {
+        backgroundImage: `linear-gradient(to right, ${colors.join(", ")})`,
+        animationDuration: `${animationSpeed}s`,
+    };
+
+    return (
+        <span
+            className={`inline-block font-medium bg-cover animate-gradient ${className}`}
+                style={{
+                    ...gradientStyle,
+                    backgroundClip: "text",
+                    WebkitBackgroundClip: "text",
+                color: "transparent",
+                    backgroundSize: "300% 100%",
+                }}
+            >
+                {children}
+        </span>
+    );
+}
+
 export default function Hero() {
   const [showGlow, setShowGlow] = useState(true);
   const controls = useAnimation();
@@ -93,15 +130,9 @@ export default function Hero() {
       {/* <AnimatedShapeBlur /> */}
 
       {/* Contenedor principal para el contenido del Hero */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col items-center justify-center text-center">
-        {/* Menor padding en móvil para evitar scroll innecesario */}
-        <motion.div
-          key="content"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="flex flex-col items-center justify-center text-center"
-        >
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col lg:flex-row items-center justify-center lg:items-center text-center gap-4 lg:gap-12">
+        {/* Columna izquierda: textos y botón */}
+        <div className="flex-1 flex flex-col items-center justify-center text-center">
           {/* Badge/Etiqueta superior */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
@@ -149,13 +180,17 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4 }}
-            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between gap-3 min-w-[180px] sm:min-w-[280px] w-full sm:w-auto"
+            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between gap-3 min-w-[180px] sm:min-w-[280px] w-full sm:w-auto mx-auto"
             aria-label="Ponte en contacto"
           >
             <span>Ponte en contacto</span>
             <Icon name="Mail" size={20} className="group-hover:scale-110 transition-transform" />
           </motion.a>
-        </motion.div>
+        </div>
+        {/* Columna derecha: WhatsAppDemo */}
+        <div className="flex-1 flex items-center justify-center w-full">
+          <WhatsAppDemo />
+        </div>
       </div>
     </section>
   );

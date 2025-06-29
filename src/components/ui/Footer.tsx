@@ -17,7 +17,7 @@ export default function Footer() {
         </div>
 
         <div className="text-sm text-white/70">
-          &copy; {new Date().getFullYear()} Homero AI. Plataforma para clínicas dentales y de salud. Todos los derechos reservados.
+          &copy; {new Date().getFullYear()} Homero AI. Automatización inteligente para clínicas modernas. Todos los derechos reservados.
         </div>
 
         <div className="flex gap-6">

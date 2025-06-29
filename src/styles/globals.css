@@ -209,4 +209,23 @@ body {
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+/* Animaciones para el carrusel de integraciones */
+@keyframes scroll-left {
+  from { transform: translateX(0); }
+  to { transform: translateX(-25%); }
+}
+
+@keyframes scroll-right {
+  from { transform: translateX(-25%); }
+  to { transform: translateX(0); }
+}
+
+.animate-scroll-right {
+  animation: scroll-right 30s linear infinite;
+}
+
+.animate-scroll-left {
+  animation: scroll-left 30s linear infinite;
 } 

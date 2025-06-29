@@ -1,60 +1,60 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils"; 
 import React from "react";
 import { Icon } from '@/components/ui/Icon'; // Importar el componente Icon
 
 export function FeaturesSection() {
   const features = [
     {
-      title: "Agendamiento Inteligente",
+      title: "Citas Automáticas",
       description:
-        "Automatiza citas, confirmaciones y recordatorios por WhatsApp y SMS, reduciendo drásticamente los 'no-shows' en tu clínica.",
+        "Homero agenda, confirma y reprograma citas solo. Tus pacientes reciben recordatorios por WhatsApp, Correos o SMS, y tú dejas de perder tiempo y dinero por inasistencias.",
       icon: <Icon name="CalendarCheck" className="text-white" />,
     },
     {
-      title: "Comunicación Omnicanal",
+      title: "Respuestas por Todos los Canales",
       description:
-        "Mantén una conexión fluida con tus pacientes a través de WhatsApp, SMS y otros canales, centralizando todas las conversaciones.",
+        "Pacientes te escriben por WhatsApp, Instagram o SMS. Homero responde al tiro, sin que tengas que estar pegado al celular.",
       icon: <Icon name="MessagesSquare" className="text-white" />,
     },
     {
-      title: "Atención 24/7 con Agentes IA",
+      title: "Atención 24/7 con IA",
       description:
-        "Resuelve dudas frecuentes, da información sobre servicios y redirige consultas complejas, liberando a tu personal administrativo.",
+        "Homero contesta dudas frecuentes de tus pacientes sobre precios, horarios o servicios a cada minuto del dia, Homero no duerme. Si es algo complejo, se lo deriva a tu equipo. Siempre hay alguien respondiendo.",
       icon: <Icon name="Bot" className="text-white" />,
     },
     {
-      title: "Gestión Proactiva de Pacientes",
+      title: "Seguimiento Automático",
       description:
-        "Automatiza el seguimiento post-consulta, encuestas de satisfacción y la recuperación de pacientes inactivos, mejorando la fidelización.",
+        "Después de la consulta, Homero se encarga del seguimiento. Manda encuestas, recuerda controles y ayuda a que tus pacientes vuelvan solos.",
       icon: <Icon name="Users" className="text-white" />,
     },
     {
-      title: "Informes y Métricas Clave",
+      title: "Métricas Claras",
       description:
-        "Obtén datos claros sobre la eficiencia de tu agenda, la efectividad de tus recordatorios y la satisfacción de tus pacientes.",
+        "Sabrás cuántas citas se concretan, cuántos pacientes confirman, y si tus mensajes están funcionando. Todo en simple y sin Excel.",
       icon: <Icon name="BarChart3" className="text-white" />,
     },
     {
-      title: "Optimización de Flujos Clínicos",
+      title: "Flujos Internos Simplificados",
       description:
-        "Simplifica y automatiza procesos internos, desde la bienvenida del paciente hasta la gestión de consentimientos informados.",
+        "Homero automatiza cosas como dar la bienvenida, pedir consentimientos o actualizar datos del paciente. Menos papeleo, más tiempo para atender.",
       icon: <Icon name="Workflow" className="text-white" />,
     },
     {
-      title: "Integración sin Esfuerzo",
+      title: "Se Conecta con Todo",
       description:
-        "Conecta Homero AI con tu software de gestión de clínicas y calendarios actuales para un ecosistema digital unificado.",
+        "Homero se integra fácil con tu agenda (Google Calendar, Calendly) y tu base de datos. Todo queda conectado y funcionando sin enredos.",
       icon: <Icon name="Plug" className="text-white" />,
     },
     {
-      title: "Seguridad y Privacidad de Datos",
+      title: "Tus datos están 100% protegidos",
       description:
-        "Garantiza la protección de la información sensible de tus pacientes con los más altos estándares de seguridad y cumplimiento (HIPAA, RGPD).",
+        "Homero funciona con tecnología de OpenAI, una de las más seguras del mundo. Todos los datos de tus pacientes se procesan con los más altos estándares de privacidad y cumplimiento (como HIPAA y RGPD). Tu clínica, y tus pacientes, están en buenas manos.",
       icon: <Icon name="ShieldCheck" className="text-white" />,
     },
   ];
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto">
+    <div id="features" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto">
       {features.map((feature, index) => (
         <Feature key={feature.title} {...feature} index={index} />
       ))}

@@ -1,0 +1,74 @@
+:root {
+  --chat--color-primary: #14213d;
+  --chat--color-primary-shade-50: #101a2b;
+  --chat--color-primary-shade-100: #0d1522;
+  --chat--color-secondary: #20b69e;
+  --chat--color-secondary-shade-50: #1ca08a;
+  --chat--color-white: #ffffff;
+  --chat--color-light: #1a2540;
+  --chat--color-light-shade-50: #223366;
+  --chat--color-light-shade-100: #223366;
+  --chat--color-medium: #223366;
+  --chat--color-dark: #14213d;
+  --chat--color-disabled: #777980;
+  --chat--color-typing: #20b69e;
+
+  --chat--header--background: #14213d;
+  --chat--header--color: #fff;
+  --chat--header-height: 90px;
+  --chat--heading--font-size: 1.5em;
+  --chat--subtitle--font-size: 1em;
+  --chat--subtitle--line-height: 1.5;
+  --chat--window--width: 400px;
+  --chat--window--height: 600px;
+}
+
+.n8n-chat__header {
+  background: var(--chat--header--background) !important;
+  color: var(--chat--header--color) !important;
+  justify-content: center !important;
+  position: relative !important;
+  min-height: 90px !important;
+}
+
+/* Ocultar el avatar por defecto */
+.n8n-chat__header-avatar, .n8n-chat__header-avatar img {
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none !important;
+}
+
+/* Crear un pseudo-elemento para el logo */
+.n8n-chat__header::before {
+  content: '';
+  display: block;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  width: 56px;
+  height: 56px;
+  background: #fff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px rgba(20,33,61,0.2);
+  background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDgiIGhlaWdodD0iNDgiIHZpZXdCb3g9IjAgMCA0OCA0OCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjQ4IiBoZWlnaHQ9IjQ4IiBmaWxsPSIjMTQyMTNEIi8+Cjx0ZXh0IHg9IjI0IiB5PSIzMCIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjE0IiBmaWxsPSJ3aGl0ZSIgdGV4dC1hbmNob3I9Im1pZGRsZSI+SG9tZXJvPC90ZXh0Pgo8L3N2Zz4K');
+  background-size: 48px 48px;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 2;
+}
+
+/* Asegurar que el logo inyectado se vea correctamente */
+.homero-logo {
+  width: 56px !important;
+  height: 56px !important;
+  border-radius: 50% !important;
+  background: #fff !important;
+  box-shadow: 0 2px 8px rgba(20,33,61,0.2) !important;
+  object-fit: contain !important;
+  display: block !important;
+  margin: 0 auto !important;
+  position: relative !important;
+  z-index: 10 !important;
+} 

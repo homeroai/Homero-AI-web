@@ -4,6 +4,7 @@ import BackgroundBlobs from "./components/ui/BackgroundBlobs";
 import IndexPage from "./pages/index";
 import PoliticaPrivacidad from "./pages/politica-de-privacidad";
 import TerminosDeServicio from "./pages/terminos-de-servicio";
+import N8nChatWidget from "./components/N8nChatWidget";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/terminos-de-servicio" element={<TerminosDeServicio />} />
         </Routes>
       </Suspense>
+      <N8nChatWidget />
     </div>
   );
 }

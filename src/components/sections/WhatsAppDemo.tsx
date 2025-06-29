@@ -24,6 +24,7 @@ const conversation: MessageData[] = [
     text: 'Sí, me llamo María González.',
     timestamp: '09:17'
   },
+
   { 
     sender: 'ai', 
     text: 'Perfecto María. ¿Eres paciente nueva o ya tienes historial con nosotros?',
@@ -189,7 +190,7 @@ export default function WhatsAppDemo() {
   const handleTypingComplete = () => {};
 
   return (
-    <section id="demo" className="py-16 sm:py-24 bg-transparent">
+    <section id="demo" className="py-16 sm:py-24 bg-transparent min-h-[700px] md:min-h-[700px] overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
@@ -198,7 +199,7 @@ export default function WhatsAppDemo() {
           transition={{ duration: 0.8 }}
           className="text-3xl sm:text-5xl font-extrabold text-white mb-4"
         >
-          Así de fácil es con Homero
+          
         </motion.h2>
         <motion.p 
           initial={{ opacity: 0, y: 20 }}
@@ -207,17 +208,17 @@ export default function WhatsAppDemo() {
           transition={{ duration: 0.8, delay: 0.2 }}
           className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-12"
         >
-          Nuestro asistente de IA se encarga de agendar, confirmar y responder, para que tu equipo se enfoque en lo que más importa: los pacientes.
         </motion.p>
         
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          whileInView={{ opacity: 1, scale: 1 }}
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="max-w-sm mx-auto bg-gray-900 border-4 border-gray-700 rounded-[2.5rem] shadow-2xl p-2"
+          className="max-w-md mx-auto bg-gray-900 border-4 border-gray-700 rounded-[2.5rem] shadow-2xl p-2 overflow-hidden"
+          style={{ height: '500px', minHeight: '500px', maxHeight: '500px', display: 'flex', alignItems: 'stretch' }}
         >
-          <div className="bg-white rounded-[2rem] overflow-hidden">
+          <div className="bg-white rounded-[2rem] overflow-hidden flex flex-col h-full w-full">
             {/* Header del chat */}
             <div className="bg-gray-100 px-4 py-3 flex items-center gap-3 border-b">
               <div className="w-10 h-10 rounded-full bg-homero-purple flex items-center justify-center">
@@ -235,7 +236,7 @@ export default function WhatsAppDemo() {
             {/* Cuerpo del chat */}
             <div 
               ref={chatContainerRef} 
-              className="h-96 bg-cover bg-center p-4 flex flex-col gap-3 overflow-y-auto" 
+              className="flex-1 bg-cover bg-center p-4 flex flex-col gap-3 overflow-y-auto w-full"
               style={{ backgroundImage: "url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')"}}
             >
               <AnimatePresence>
@@ -251,6 +252,8 @@ export default function WhatsAppDemo() {
           </div>
         </motion.div>
       </div>
+      {/* Separador para evitar movimiento de la siguiente sección */}
+      <div className="h-12 md:h-20"></div>
     </section>
   );
 } 

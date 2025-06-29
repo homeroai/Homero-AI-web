@@ -1,113 +1,132 @@
-import React, { useRef } from 'react';
+import React from 'react';
 import { motion } from 'framer-motion';
-import { Icon } from '@/components/ui/Icon';
 import hologo from '@/assets/logos/hologo.png';
+import linkedinLogo from '@/assets/logos_4_homero/LinkedIn/LinkedIn_Symbol_0.svg';
+import openaiLogo from '@/assets/logos_4_homero/OpenAI/OpenAI_Symbol_1.png';
+import facebookLogo from '@/assets/logos_4_homero/Facebook/Facebook_Symbol_0.svg';
+import notionLogo from '@/assets/logos_4_homero/Notion/Notion_Symbol_0.svg';
+import gmailLogo from '@/assets/logos_4_homero/Gmail/Gmail_idrA5FDGTH_0.svg';
+import airtableLogo from '@/assets/logos_4_homero/Airtable/Airtable_idbbncOsuL_0.svg';
+import instagramLogo from '@/assets/logos_4_homero/Instagram/Instagram_Symbol_Alternative_0.svg';
+import n8nLogo from '@/assets/logos_4_homero/N8n.io/N8n.io_id9y5Acqtx_0.svg';
+import calendlyLogo from '@/assets/logos_4_homero/Calendly/Calendly_idoHNAJiuQ_0.svg';
+import googleCalendarLogo from '@/assets/logos_4_homero/GoogleCalendar/google-calendar-seeklogo.png';
+import googleDriveLogo from '@/assets/logos_4_homero/GoogleDrive/google-drive-seeklogo.png';
+import whatsappLogo from '@/assets/logos_4_homero/WhatsApp/whatsapp-icon-seeklogo.png';
 
 export default function IntegrationsSection() {
   const integrations = [
-    { name: 'WhatsApp', icon: 'MessagesSquare' },
-    { name: 'Google Calendar', icon: 'CalendarDays' },
-    { name: 'Email', icon: 'Mail' },
-    { name: 'SMS', icon: 'MessageSquareText' },
-    { name: 'CRM', icon: 'Cloud' },
-    { name: 'Base de Datos', icon: 'Database' },
-    { name: 'IA Avanzada', icon: 'Brain' },
-    { name: 'Zoom', icon: 'Video' },
-    { name: 'Redes Sociales', icon: 'Share2' },
+    { name: 'Google Drive', logo: googleDriveLogo },
+    { name: 'OpenAI', logo: openaiLogo },
+    { name: 'Facebook', logo: facebookLogo },
+    { name: 'Notion', logo: notionLogo },
+    { name: 'WhatsApp', logo: whatsappLogo },
+    { name: 'Google Calendar', logo: googleCalendarLogo },
+    { name: 'LinkedIn', logo: linkedinLogo },
+    { name: 'Calendly', logo: calendlyLogo },
+    { name: 'Gmail', logo: gmailLogo },
+    { name: 'Airtable', logo: airtableLogo },
+    { name: 'Instagram', logo: instagramLogo },
+    { name: 'N8n.io', logo: n8nLogo },
   ];
 
-  // Duplicar para efecto infinito
-  const logos = [...integrations, ...integrations, ...integrations];
-  const iconSize = 64; // px
-  const gap = 32; // px
-  const duration = 18; // segundos
-  const totalWidth = logos.length * (iconSize + gap);
+  // Dividir los logos en dos columnas de 6
+  const leftLogos = integrations.slice(0, 6);
+  const rightLogos = integrations.slice(6, 12);
+  // Duplicar para animación infinita
+  const leftLogosLoop = [...leftLogos, ...leftLogos, ...leftLogos, ...leftLogos];
+  const rightLogosLoop = [...rightLogos, ...rightLogos, ...rightLogos, ...rightLogos];
 
   return (
-    <section className="py-12 sm:py-20 px-2 sm:px-6 relative z-10 bg-transparent">
-      <div className="max-w-7xl mx-auto text-center mb-8 sm:mb-12">
+    <section className="py-24 sm:py-32 relative z-10 bg-transparent overflow-hidden">
+      <div className="max-w-7xl mx-auto text-center mb-16">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8 }}
-          className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white mb-2 sm:mb-4 leading-tight"
+          className="text-4xl sm:text-5xl font-extrabold text-white tracking-wider"
         >
-          Conecta Homero AI con tu Ecosistema Clínico
+          HOMERO AI
         </motion.h2>
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-base sm:text-lg text-white/80 max-w-xs sm:max-w-3xl mx-auto"
+          className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mt-4"
         >
-          Integra Homero AI sin esfuerzo con las herramientas que ya usas en tu clínica dental o de salud, potenciando cada aspecto de tu operación.
+          Conecta el ecosistema de tu clínica a Homero y deja que la IA se encargue de agendar, responder y acompañar a tus pacientes, sin perder el toque humano.
         </motion.p>
       </div>
-
-      <div className="relative flex items-center justify-center py-6 sm:py-10" style={{ minHeight: 120 }}>
-        {/* Línea de conexión de fondo */}
-        <div className="absolute w-full h-px bg-homero-purple/50"></div>
-
-        {/* Carrusel tipo Framer */}
-        <div className="relative w-full max-w-full sm:max-w-5xl mx-auto flex items-center justify-center overflow-x-auto scrollbar-hide" style={{ height: 'auto', minHeight: 80 }}>
-          <section
-            className="w-full overflow-x-auto"
+      <div className="relative flex flex-row items-center justify-center gap-8" style={{ minHeight: 180 }}>
+        {/* Carrusel izquierdo */}
+        <div className="flex-1 flex justify-end">
+          <div
+            className="w-full max-w-xl flex overflow-hidden h-24 relative"
             style={{
-              maskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, black 15%, black 85%, rgba(0,0,0,0) 100%)',
-              WebkitMaskImage: 'linear-gradient(to right, rgba(0,0,0,0) 0%, black 15%, black 85%, rgba(0,0,0,0) 100%)',
+              maskImage: 'linear-gradient(to right, transparent 0%, #fff 30%, #fff 70%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, #fff 30%, #fff 70%, transparent 100%)',
             }}
           >
-            <motion.ul
-              className="flex items-center gap-4 sm:gap-8 m-0 p-0 list-none relative"
-              style={{ minWidth: 600 }}
-              animate={{ x: [0, -totalWidth / 3] }}
-              transition={{
-                x: {
-                  repeat: Infinity,
-                  repeatType: 'loop',
-                  duration,
-                  ease: 'linear',
-                },
-              }}
-            >
-              {logos.map((integration, idx) => (
-                <li
-                  key={`${integration.name}-${idx}`}
-                  className="flex flex-col items-center gap-2 text-white/70 flex-shrink-0"
-                  style={{ width: iconSize < 48 ? 48 : iconSize }}
+            <div className="flex items-center animate-scroll-right" style={{ minWidth: 'fit-content' }}>
+              {leftLogosLoop.map((integration, idx) => (
+                <div
+                  key={`left-${integration.name}-${idx}`}
+                  className="flex items-center justify-center flex-shrink-0 mx-4 transition-all duration-500"
+                  style={{ width: 64, height: 64, transition: 'all 0.5s' }}
                 >
-                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-black/50 border border-white/10 flex items-center justify-center shadow-lg">
-                    <Icon name={integration.icon} size={24} className="sm:text-homero-purpleLight" />
-                  </div>
-                  <span className="text-xs font-medium text-center mt-2 whitespace-nowrap">{integration.name}</span>
-                </li>
+                  <img
+                    src={integration.logo}
+                    alt={integration.name + ' logo'}
+                    className="object-contain transition-all duration-500"
+                    style={{ 
+                      maxWidth: 56, 
+                      maxHeight: 56,
+                      opacity: 'calc(0.5 + 0.5 * (1 - Math.abs((idx % 6) - 2.5) / 2.5))',
+                      transform: `scale(${0.8 + 0.4 * (1 - Math.abs((idx % 6) - 2.5) / 2.5)})`
+                    }}
+                  />
+                </div>
               ))}
-            </motion.ul>
-          </section>
-
-          {/* Logo central de Homero AI, fijo y con glow */}
-          <div className="hidden sm:block absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10 pointer-events-none">
-            <motion.div
-              className="p-4 bg-homero-purpleDark rounded-full shadow-2xl border-4 border-homero-purpleLight flex items-center justify-center"
-              initial={{ scale: 0.8, opacity: 0 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, amount: 0.5 }}
-              transition={{ duration: 0.8, delay: 0.4, ease: 'easeOut' }}
-              style={{ width: 80, height: 80 }}
-              animate={{
-                scale: [1, 1.2, 1],
-                boxShadow: [
-                  '0 0 0 rgba(255,255,255,0)',
-                  '0 0 20px rgba(255,255,255,0.3)',
-                  '0 0 0 rgba(255,255,255,0)'
-                ],
-                transition: { duration: 2, repeat: Infinity }
-              }}
-            >
-              <img src={hologo} alt="Homero AI Logo" className="h-10 w-10" />
-            </motion.div>
+            </div>
+          </div>
+        </div>
+        {/* Logo central de Homero con aurora */}
+        <div className="flex-shrink-0 flex items-center justify-center relative" style={{ width: 180, height: 180 }}>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-homero-purpleLight via-blue-500 to-homero-purple blur-2xl opacity-60 animate-pulse" style={{ zIndex: 1 }}></div>
+          <img src={hologo} alt="Homero AI Logo" className="object-contain w-36 h-36 relative z-10" style={{ borderRadius: '50%' }} />
+        </div>
+        {/* Carrusel derecho */}
+        <div className="flex-1 flex justify-start">
+          <div
+            className="w-full max-w-xl flex overflow-hidden h-24 relative"
+            style={{
+              maskImage: 'linear-gradient(to left, transparent 0%, #fff 30%, #fff 70%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to left, transparent 0%, #fff 30%, #fff 70%, transparent 100%)',
+            }}
+          >
+            <div className="flex items-center animate-scroll-left" style={{ minWidth: 'fit-content' }}>
+              {rightLogosLoop.map((integration, idx) => (
+                <div
+                  key={`right-${integration.name}-${idx}`}
+                  className="flex items-center justify-center flex-shrink-0 mx-4 transition-all duration-500"
+                  style={{ width: 64, height: 64, transition: 'all 0.5s' }}
+                >
+                  <img
+                    src={integration.logo}
+                    alt={integration.name + ' logo'}
+                    className="object-contain transition-all duration-500"
+                    style={{ 
+                      maxWidth: 56, 
+                      maxHeight: 56,
+                      opacity: 'calc(0.5 + 0.5 * (1 - Math.abs((idx % 6) - 2.5) / 2.5))',
+                      transform: `scale(${0.8 + 0.4 * (1 - Math.abs((idx % 6) - 2.5) / 2.5)})`
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
