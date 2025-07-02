@@ -3,7 +3,6 @@ import Hero from '@/components/sections/Hero'
 // import WhatsAppDemo from '@/components/sections/WhatsAppDemo'
 import IntegrationsSection from '@/components/sections/IntegrationsSection'
 import { FeaturesSection } from '@/components/sections/FeaturesSection'
-import SolutionsSection from '@/components/sections/Solutions'
 import FaqSection from '@/components/sections/FaqSection'
 import ContactSection from '@/components/sections/ContactSection'
 import Footer from '@/components/ui/Footer'
@@ -20,7 +19,6 @@ export default function Home({ isAnimationComplete }: HomeProps) {
       {/* <WhatsAppDemo /> */}
       <IntegrationsSection />
       <FeaturesSection />
-      <SolutionsSection />
       <FaqSection />
       <ContactSection />
       <Footer />

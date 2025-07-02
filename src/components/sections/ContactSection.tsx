@@ -96,11 +96,11 @@ export default function ContactSection() {
 
   if (submitStatus === 'success') {
     return (
-      <section id="contact" className="py-20 px-4 flex items-center justify-center min-h-[600px]">
+      <section id="contact" className="py-16 px-2 sm:py-20 flex items-center justify-center min-h-[500px] sm:min-h-[600px]">
         <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          className="bg-homero-purpleDark p-8 rounded-2xl shadow-2xl w-full max-w-md flex flex-col items-center border border-homero-purpleLight/30 text-center"
+          className="bg-homero-purpleDark p-6 sm:p-8 rounded-2xl shadow-2xl w-full max-w-md flex flex-col items-center border border-homero-purpleLight/30 text-center"
         >
           <Icon name="CheckCircle" size={48} className="text-green-400 mb-4" />
           <h3 className="text-2xl font-bold text-white mb-2">¡Gracias por tu mensaje!</h3>
@@ -117,14 +117,14 @@ export default function ContactSection() {
   }
 
   return (
-    <section id="contact" className="py-12 sm:py-20 px-2 sm:px-6 relative z-10 bg-transparent">
-      <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-12">
+    <section id="contact" className="py-10 sm:py-20 px-2 sm:px-6 relative z-10 bg-transparent">
+      <div className="max-w-4xl mx-auto text-center mb-8 sm:mb-12 px-2 sm:px-0">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.5 }}
           transition={{ duration: 0.8 }}
-          className="text-2xl sm:text-5xl md:text-6xl font-extrabold text-white mb-2 sm:mb-4"
+          className="text-xl sm:text-5xl md:text-6xl font-extrabold text-white mb-2 sm:mb-4"
         >
           Agenda una Demostración para tu Clínica
         </motion.h2>
@@ -144,7 +144,7 @@ export default function ContactSection() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.5 }}
         transition={{ duration: 0.8, delay: 0.4 }}
-        className="max-w-xl sm:max-w-2xl mx-auto bg-black/40 border border-homero-purple/30 rounded-lg p-6 sm:p-8 shadow-lg flex flex-col gap-5"
+        className="max-w-md sm:max-w-2xl mx-auto bg-black/40 border border-homero-purple/30 rounded-lg p-4 sm:p-8 shadow-lg flex flex-col gap-5"
         onSubmit={handleSubmit}
         noValidate
       >
@@ -154,7 +154,7 @@ export default function ContactSection() {
             id="nombre-contact"
             name="nombre"
             type="text"
-            className="rounded-lg px-4 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight"
+            className="rounded-lg px-4 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight text-sm sm:text-base"
             value={form.nombre}
             onChange={handleChange}
             autoComplete="name"
@@ -167,7 +167,7 @@ export default function ContactSection() {
             id="email-contact"
             name="email"
             type="email"
-            className="rounded-lg px-4 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight"
+            className="rounded-lg px-4 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight text-sm sm:text-base"
             value={form.email}
             onChange={handleChange}
             autoComplete="email"
@@ -176,9 +176,9 @@ export default function ContactSection() {
         </div>
         <div className="flex flex-col gap-2">
           <label htmlFor="numero-contact" className="text-left text-white/80 font-medium">Número de Teléfono</label>
-          <div className="flex gap-2">
+          <div className="flex gap-2 flex-col sm:flex-row">
             <select
-              className="rounded-lg px-2 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight"
+              className="rounded-lg px-2 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight text-sm sm:text-base"
               value={country.id}
               onChange={e => {
                 const selected = countryOptions.find(c => c.id === e.target.value);
@@ -194,35 +194,34 @@ export default function ContactSection() {
               id="numero-contact"
               name="numero"
               type="tel"
-              className="flex-1 rounded-lg px-4 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight"
+              className="flex-1 rounded-lg px-4 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight text-sm sm:text-base"
               value={localNumber}
               onChange={e => setLocalNumber(e.target.value)}
               autoComplete="tel"
-              placeholder="Ej: 912345678"
             />
           </div>
           {errors.numero && <span className="text-red-400 text-xs text-left">{errors.numero}</span>}
         </div>
         <div className="flex flex-col gap-2">
-          <label htmlFor="problema-contact" className="text-left text-white/80 font-medium">¿Cuál es su problema o consulta?</label>
+          <label htmlFor="problema-contact" className="text-left text-white/80 font-medium">¿Cuál es el principal problema que quieres resolver?</label>
           <textarea
             id="problema-contact"
             name="problema"
-            rows={4}
-            className="rounded-lg px-4 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight resize-none"
+            className="rounded-lg px-4 py-2 bg-black/30 border border-homero-purpleLight/30 text-white focus:outline-none focus:ring-2 focus:ring-homero-purpleLight text-sm sm:text-base"
             value={form.problema}
             onChange={handleChange}
+            rows={3}
           />
           {errors.problema && <span className="text-red-400 text-xs text-left">{errors.problema}</span>}
         </div>
         <button
           type="submit"
-          className="mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg shadow-lg hover:scale-105 transition-all duration-300"
+          className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-lg mt-2 text-base sm:text-lg transition-all duration-200"
         >
-          Enviar Mensaje
+          Enviar mensaje
         </button>
         {submitStatus === 'error' && (
-          <span className="text-red-400 text-sm mt-2">Hubo un error al enviar el formulario. Intenta nuevamente.</span>
+          <span className="text-red-400 text-sm text-center">Ocurrió un error al enviar el mensaje. Intenta nuevamente.</span>
         )}
       </motion.form>
     </section>

@@ -121,7 +121,7 @@ export default function Hero() {
 
   return (
     <section 
-      className="relative min-h-[80vh] sm:min-h-screen w-full flex items-center justify-center overflow-x-hidden"
+      className="relative min-h-[80vh] sm:min-h-screen w-full flex flex-col lg:flex-row items-center justify-center overflow-x-hidden px-2 sm:px-0"
       role="banner"
       aria-label="Hero section"
     >
@@ -130,15 +130,15 @@ export default function Hero() {
       {/* <AnimatedShapeBlur /> */}
 
       {/* Contenedor principal para el contenido del Hero */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 py-12 sm:py-20 flex flex-col lg:flex-row items-center justify-center lg:items-center text-center gap-4 lg:gap-12">
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-6 py-8 sm:py-20 flex flex-col lg:flex-row items-center justify-center lg:items-center text-center gap-6 lg:gap-12">
         {/* Columna izquierda: textos y botón */}
-        <div className="flex-1 flex flex-col items-center justify-center text-center">
+        <div className="flex-1 flex flex-col items-center justify-center text-center w-full max-w-xl mx-auto">
           {/* Badge/Etiqueta superior */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.6 }}
-            className="mb-4 sm:mb-6"
+            className="mb-3 sm:mb-6"
           >
             <GradientText
               className="text-xs sm:text-sm lg:text-base font-bold tracking-wide uppercase"
@@ -154,7 +154,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
-            className={`text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight mb-4 sm:mb-6 transition-all duration-1000 ${
+            className={`text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight mb-3 sm:mb-6 transition-all duration-1000 ${
               showGlow ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]' : 'drop-shadow-[0_0_5px_rgba(255,255,255,0.1)]'
             }`}
           >
@@ -166,7 +166,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1.0 }}
-            className="text-xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug mb-6 sm:mb-8 max-w-xs sm:max-w-xl mx-auto text-center"
+            className="text-base xs:text-lg sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug mb-5 sm:mb-8 max-w-xs sm:max-w-xl mx-auto text-center"
           >
             <span className="bg-clip-text text-transparent animate-gradient bg-gradient-to-r from-homero-purpleLight via-white to-homero-purpleLight">
               {typewriterText}
@@ -180,7 +180,7 @@ export default function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 1.4 }}
-            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 px-8 sm:px-10 rounded-full text-base sm:text-lg shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between gap-3 min-w-[180px] sm:min-w-[280px] w-full sm:w-auto mx-auto"
+            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-full text-base sm:text-lg shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between gap-3 min-w-[160px] sm:min-w-[280px] w-full sm:w-auto mx-auto"
             aria-label="Ponte en contacto"
           >
             <span>Ponte en contacto</span>
@@ -188,7 +188,7 @@ export default function Hero() {
           </motion.a>
         </div>
         {/* Columna derecha: WhatsAppDemo */}
-        <div className="flex-1 flex items-center justify-center w-full">
+        <div className="flex-1 flex items-center justify-center w-full mt-8 lg:mt-0">
           <WhatsAppDemo />
         </div>
       </div>

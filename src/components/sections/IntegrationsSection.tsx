@@ -13,7 +13,6 @@ import calendlyLogo from '@/assets/logos_4_homero/Calendly/Calendly_idoHNAJiuQ_0
 import googleCalendarLogo from '@/assets/logos_4_homero/GoogleCalendar/google-calendar-seeklogo.png';
 import googleDriveLogo from '@/assets/logos_4_homero/GoogleDrive/google-drive-seeklogo.png';
 import whatsappLogo from '@/assets/logos_4_homero/WhatsApp/whatsapp-icon-seeklogo.png';
-import dentalinkLogo from '@/assets/logos_4_homero/DentaLink/dentalink.jpeg';
 
 export default function IntegrationsSection() {
   const integrations = [
@@ -29,7 +28,6 @@ export default function IntegrationsSection() {
     { name: 'Airtable', logo: airtableLogo },
     { name: 'Instagram', logo: instagramLogo },
     { name: 'N8n.io', logo: n8nLogo },
-    { name: 'Dentalink', logo: dentalinkLogo },
   ];
 
   // Dividir los logos en dos columnas de 6

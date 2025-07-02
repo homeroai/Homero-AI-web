@@ -137,13 +137,13 @@ export default function FaqSection() {
   const remainingSecondColumn = secondColumn.slice(4);
 
   return (
-    <section id="faqs" className="py-12 sm:py-20 px-2 sm:px-4 bg-transparent">
+    <section id="faqs" className="py-10 sm:py-20 px-2 sm:px-4 bg-transparent">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-extrabold text-white text-center mb-12">
+        <h2 className="text-2xl sm:text-4xl md:text-5xl font-extrabold text-white text-center mb-8 sm:mb-12">
           Preguntas Frecuentes
         </h2>
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          <div className="space-y-4">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-8 lg:gap-12">
+          <div className="space-y-2 sm:space-y-4">
             {initialFirstColumn.map((faq, index) => (
               <FaqItem key={index} question={faq.question} answer={faq.answer} />
             ))}
@@ -154,7 +154,7 @@ export default function FaqSection() {
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  className="space-y-4 overflow-hidden"
+                  className="space-y-2 sm:space-y-4 overflow-hidden"
                 >
                   {remainingFirstColumn.map((faq, index) => (
                     <FaqItem key={index + 4} question={faq.question} answer={faq.answer} />
@@ -163,7 +163,7 @@ export default function FaqSection() {
               )}
             </AnimatePresence>
           </div>
-          <div className="space-y-4">
+          <div className="space-y-2 sm:space-y-4">
             {initialSecondColumn.map((faq, index) => (
               <FaqItem key={index + Math.ceil(faqData.length / 2)} question={faq.question} answer={faq.answer} />
             ))}
@@ -174,7 +174,7 @@ export default function FaqSection() {
                   animate={{ opacity: 1, height: 'auto' }}
                   exit={{ opacity: 0, height: 0 }}
                   transition={{ duration: 0.5, ease: 'easeInOut' }}
-                  className="space-y-4 overflow-hidden"
+                  className="space-y-2 sm:space-y-4 overflow-hidden"
                 >
                   {remainingSecondColumn.map((faq, index) => (
                     <FaqItem key={index + Math.ceil(faqData.length / 2) + 4} question={faq.question} answer={faq.answer} />
@@ -185,10 +185,10 @@ export default function FaqSection() {
           </div>
         </div>
         
-        <div className="flex justify-center mt-12">
+        <div className="flex justify-center mt-8 sm:mt-12">
           <motion.button
             onClick={() => setShowAll(!showAll)}
-            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-8 rounded-full shadow-lg hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-3"
+            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-lg hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-3 text-base sm:text-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

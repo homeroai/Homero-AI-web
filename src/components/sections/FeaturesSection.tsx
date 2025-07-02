@@ -54,7 +54,7 @@ export function FeaturesSection() {
     },
   ];
   return (
-    <div id="features" className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 relative z-10 py-10 max-w-7xl mx-auto">
+    <div id="features" className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 relative z-10 py-8 sm:py-10 max-w-7xl mx-auto gap-4 sm:gap-6 px-2 sm:px-0">
       {features.map((feature, index) => (
         <Feature key={feature.title} {...feature} index={index} />
       ))}
@@ -76,7 +76,7 @@ const Feature = ({
   return (
     <div
       className={cn(
-        "flex flex-col lg:border-r py-10 relative group/feature border-neutral-800",
+        "flex flex-col bg-black/30 rounded-xl border border-neutral-800 py-6 px-4 sm:px-8 relative group/feature min-h-[180px] sm:min-h-[220px]",
         (index === 0 || index === 4) ? "lg:border-l border-neutral-800" : undefined,
         index < 4 ? "lg:border-b border-neutral-800" : undefined
       )}
@@ -87,16 +87,16 @@ const Feature = ({
       {index >= 4 && (
         <div className="opacity-0 group-hover/feature:opacity-100 transition duration-200 absolute inset-0 h-full w-full bg-gradient-to-b from-transparent via-transparent to-black pointer-events-none" />
       )}
-      <div className="mb-4 relative z-10 px-10 text-neutral-400">
+      <div className="mb-3 sm:mb-4 relative z-10 px-2 sm:px-10 text-neutral-400 flex items-center justify-center text-3xl sm:text-4xl">
         {icon}
       </div>
-      <div className="text-lg font-bold mb-2 relative z-10 px-10">
-        <div className="absolute left-0 inset-y-0 h-6 group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-homero-purpleLight group-hover/feature:bg-homero-purple transition-all duration-200 origin-center" />
+      <div className="text-base sm:text-lg font-bold mb-1 sm:mb-2 relative z-10 px-2 sm:px-10">
+        <div className="absolute left-0 inset-y-0 h-5 sm:h-6 group-hover/feature:h-7 sm:group-hover/feature:h-8 w-1 rounded-tr-full rounded-br-full bg-homero-purpleLight group-hover/feature:bg-homero-purple transition-all duration-200 origin-center" />
         <span className="group-hover/feature:translate-x-2 transition duration-200 inline-block text-white">
           {title}
         </span>
       </div>
-      <p className="text-sm text-neutral-300 max-w-xs relative z-10 px-10">
+      <p className="text-xs sm:text-sm text-neutral-300 max-w-xs relative z-10 px-2 sm:px-10">
         {description}
       </p>
     </div>
