@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Icon } from '@/components/ui/Icon';
+import backgroundVideo from '@/assets/videos/fondodepantallaweb.mp4';
 
 // Hook para efecto typewriter con parte fija y parte variable
 function useTypewriterAlternating(
@@ -125,7 +126,7 @@ export default function Hero() {
           className="absolute inset-0 w-full h-full object-cover"
           style={{ zIndex: -1 }}
         >
-          <source src="/src/assets/videos/fondodepantallaweb.mp4" type="video/mp4" />
+          <source src={backgroundVideo} type="video/mp4" />
           Tu navegador no soporta el elemento de video.
         </video>
         {/* Overlay para mejorar legibilidad del texto */}
