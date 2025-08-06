@@ -8,7 +8,15 @@ interface IconProps extends LucideProps {
 }
 
 export function Icon({ name, className, ...props }: IconProps) {
-  const Component = (LucideIcons as any)[name]
-  if (!Component) return null
-  return <Component className={cn('stroke-1', className)} {...props} />
+  try {
+    const Component = (LucideIcons as any)[name]
+    if (!Component) {
+      console.warn(`Icon "${name}" not found`)
+      return <span className={cn('inline-block w-4 h-4', className)} />
+    }
+    return <Component className={cn('stroke-1', className)} {...props} />
+  } catch (error) {
+    console.error(`Error rendering icon "${name}":`, error)
+    return <span className={cn('inline-block w-4 h-4', className)} />
+  }
 } 
