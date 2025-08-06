@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseAvailable } from '../lib/supabase';
 import { useNavigate } from 'react-router-dom';
 
 interface Props {
@@ -12,7 +12,14 @@ const AuthGuard: React.FC<Props> = ({ children }) => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const session = supabase.auth.getSession().then(({ data }) => {
+    // Si Supabase no está disponible, permitir acceso (modo demo)
+    if (!isSupabaseAvailable()) {
+      setIsAuthenticated(true);
+      setLoading(false);
+      return;
+    }
+
+    const session = supabase!.auth.getSession().then(({ data }) => {
       if (data.session) {
         setIsAuthenticated(true);
       } else {
@@ -20,12 +27,14 @@ const AuthGuard: React.FC<Props> = ({ children }) => {
       }
       setLoading(false);
     });
+    
     // Escuchar cambios de sesión
-    const { data: listener } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: listener } = supabase!.auth.onAuthStateChange((_event, session) => {
       if (!session) {
         navigate('/login');
       }
     });
+    
     return () => {
       listener.subscription.unsubscribe();
     };

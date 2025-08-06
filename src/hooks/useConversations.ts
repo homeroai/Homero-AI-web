@@ -1,6 +1,6 @@
 // src/hooks/useConversations.ts
 import { useState, useEffect } from 'react';
-import { supabase } from '../lib/supabase';
+import { supabase, isSupabaseAvailable } from '../lib/supabase';
 
 export interface Message {
   id: string;
@@ -33,10 +33,31 @@ export const useConversations = () => {
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
+    // Si Supabase no está disponible, usar datos de demo
+    if (!isSupabaseAvailable()) {
+      setConversations([
+        {
+          id: '1',
+          clinic_id: 'demo',
+          patient_name: 'María González',
+          patient_phone: '+56912345678',
+          platform: 'whatsapp',
+          last_message: 'Hola, necesito agendar una cita',
+          last_message_at: new Date().toISOString(),
+          status: 'active',
+          unread_count: 1,
+          created_at: new Date().toISOString(),
+          updated_at: new Date().toISOString()
+        }
+      ]);
+      setLoading(false);
+      return;
+    }
+
     fetchConversations();
     
     // Suscripción en tiempo real para nuevas conversaciones
-    const conversationsSubscription = supabase
+    const conversationsSubscription = supabase!
       .channel('conversations-changes')
       .on('postgres_changes', 
         { 
@@ -52,7 +73,7 @@ export const useConversations = () => {
       .subscribe();
 
     // Suscripción para nuevos mensajes (para actualizar last_message)
-    const messagesSubscription = supabase
+    const messagesSubscription = supabase!
       .channel('messages-changes')
       .on('postgres_changes',
         {
@@ -74,10 +95,12 @@ export const useConversations = () => {
   }, []);
 
   const fetchConversations = async () => {
+    if (!isSupabaseAvailable()) return;
+    
     try {
       setLoading(true);
       
-      const { data, error } = await supabase
+      const { data, error } = await supabase!
         .from('conversations')
         .select('*')
         .order('last_message_at', { ascending: false });
@@ -158,7 +181,7 @@ export const useMessages = (conversationId: string | null) => {
     fetchMessages();
     
     // Suscripción en tiempo real para nuevos mensajes
-    const subscription = supabase
+    const subscription = supabase!
       .channel(`messages-${conversationId}`)
       .on('postgres_changes',
         {
@@ -180,12 +203,12 @@ export const useMessages = (conversationId: string | null) => {
   }, [conversationId]);
 
   const fetchMessages = async () => {
-    if (!conversationId) return;
+    if (!conversationId || !isSupabaseAvailable()) return;
     
     try {
       setLoading(true);
       
-      const { data, error } = await supabase
+      const { data, error } = await supabase!
         .from('messages')
         .select('*')
         .eq('conversation_id', conversationId)
@@ -221,15 +244,17 @@ export const useDashboardStats = () => {
   }, []);
 
   const fetchStats = async () => {
+    if (!isSupabaseAvailable()) return;
+    
     try {
       // Obtener conversaciones
-      const { data: conversations } = await supabase
+      const { data: conversations } = await supabase!
         .from('conversations')
         .select('status, created_at');
 
       // Obtener mensajes de hoy
       const today = new Date().toISOString().split('T')[0];
-      const { data: todayMessages } = await supabase
+      const { data: todayMessages } = await supabase!
         .from('messages')
         .select('id')
         .gte('created_at', `${today}T00:00:00.000Z`)
