@@ -38,32 +38,12 @@ export default function IntegrationsSection() {
   const rightLogosLoop = [...rightLogos, ...rightLogos, ...rightLogos, ...rightLogos];
 
   return (
-    <section className="py-24 sm:py-32 relative z-10 bg-transparent overflow-hidden">
-      <div className="max-w-7xl mx-auto text-center mb-16">
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8 }}
-          className="text-4xl sm:text-5xl font-extrabold text-white tracking-wider"
-        >
-          HOMERO AI
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg sm:text-xl text-white/80 max-w-2xl mx-auto mt-4"
-        >
-          Conecta el ecosistema de tu clínica a Homero y deja que la IA se encargue de agendar, responder y acompañar a tus pacientes, sin perder el toque humano.
-        </motion.p>
-      </div>
-      <div className="relative flex flex-row items-center justify-center gap-8" style={{ minHeight: 180 }}>
+    <section className="pt-8 pb-16 sm:pt-12 sm:py-20 relative z-10 bg-transparent overflow-hidden">
+      <div className="relative flex flex-row items-center justify-center gap-8" style={{ minHeight: 140 }}>
         {/* Carrusel izquierdo */}
         <div className="flex-1 flex justify-end">
           <div
-            className="w-full max-w-xl flex overflow-hidden h-24 relative"
+            className="w-full max-w-xl flex overflow-hidden h-20 relative"
             style={{
               maskImage: 'linear-gradient(to right, transparent 0%, #fff 30%, #fff 70%, transparent 100%)',
               WebkitMaskImage: 'linear-gradient(to right, transparent 0%, #fff 30%, #fff 70%, transparent 100%)',
@@ -74,15 +54,15 @@ export default function IntegrationsSection() {
                 <div
                   key={`left-${integration.name}-${idx}`}
                   className="flex items-center justify-center flex-shrink-0 mx-4 transition-all duration-500"
-                  style={{ width: 64, height: 64, transition: 'all 0.5s' }}
+                  style={{ width: 56, height: 56, transition: 'all 0.5s' }}
                 >
                   <img
                     src={integration.logo}
                     alt={integration.name + ' logo'}
                     className="object-contain transition-all duration-500"
                     style={{ 
-                      maxWidth: 56, 
-                      maxHeight: 56,
+                      maxWidth: 48, 
+                      maxHeight: 48,
                       opacity: 'calc(0.5 + 0.5 * (1 - Math.abs((idx % 6) - 2.5) / 2.5))',
                       transform: `scale(${0.8 + 0.4 * (1 - Math.abs((idx % 6) - 2.5) / 2.5)})`
                     }}
@@ -93,14 +73,14 @@ export default function IntegrationsSection() {
           </div>
         </div>
         {/* Logo central de Homero con aurora */}
-        <div className="flex-shrink-0 flex items-center justify-center relative" style={{ width: 180, height: 180 }}>
-          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-homero-purpleLight via-blue-500 to-homero-purple blur-2xl opacity-60 animate-pulse" style={{ zIndex: 1 }}></div>
-          <img src={hologo} alt="Homero AI Logo" className="object-contain w-36 h-36 relative z-10" style={{ borderRadius: '50%' }} />
+        <div className="flex-shrink-0 flex items-center justify-center relative" style={{ width: 140, height: 140 }}>
+          <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-gray-700 via-gray-600 to-gray-800 blur-2xl opacity-60 animate-pulse" style={{ zIndex: 1 }}></div>
+          <img src={hologo} alt="Homero AI Logo" className="object-contain w-28 h-28 relative z-10" style={{ borderRadius: '50%' }} />
         </div>
         {/* Carrusel derecho */}
         <div className="flex-1 flex justify-start">
           <div
-            className="w-full max-w-xl flex overflow-hidden h-24 relative"
+            className="w-full max-w-xl flex overflow-hidden h-20 relative"
             style={{
               maskImage: 'linear-gradient(to left, transparent 0%, #fff 30%, #fff 70%, transparent 100%)',
               WebkitMaskImage: 'linear-gradient(to left, transparent 0%, #fff 30%, #fff 70%, transparent 100%)',
@@ -111,15 +91,15 @@ export default function IntegrationsSection() {
                 <div
                   key={`right-${integration.name}-${idx}`}
                   className="flex items-center justify-center flex-shrink-0 mx-4 transition-all duration-500"
-                  style={{ width: 64, height: 64, transition: 'all 0.5s' }}
+                  style={{ width: 56, height: 56, transition: 'all 0.5s' }}
                 >
                   <img
                     src={integration.logo}
                     alt={integration.name + ' logo'}
                     className="object-contain transition-all duration-500"
                     style={{ 
-                      maxWidth: 56, 
-                      maxHeight: 56,
+                      maxWidth: 48, 
+                      maxHeight: 48,
                       opacity: 'calc(0.5 + 0.5 * (1 - Math.abs((idx % 6) - 2.5) / 2.5))',
                       transform: `scale(${0.8 + 0.4 * (1 - Math.abs((idx % 6) - 2.5) / 2.5)})`
                     }}

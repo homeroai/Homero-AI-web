@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { motion, useAnimation } from 'framer-motion';
 import { Icon } from '@/components/ui/Icon';
-import AnimatedShapeBlur from '@/components/ui/AnimatedShapeBlur';
-import TechBackground from '@/components/ui/TechBackground';
-import WhatsAppDemo from './WhatsAppDemo';
 
 // Hook para efecto typewriter con parte fija y parte variable
 function useTypewriterAlternating(
@@ -62,7 +59,6 @@ function useTypewriterAlternating(
   return displayed;
 }
 
-// Agrega el componente GradientText aquí
 interface GradientTextProps {
     children: React.ReactNode;
     className?: string;
@@ -74,30 +70,32 @@ interface GradientTextProps {
 function GradientText({
     children,
     className = "",
-    colors = ["#ffaa40", "#9c40ff", "#ffaa40"],
+    colors = ["#666666", "#999999", "#666666"],
     animationSpeed = 8,
     showBorder = false,
 }: GradientTextProps) {
-    const gradientStyle = {
-        backgroundImage: `linear-gradient(to right, ${colors.join(", ")})`,
-        animationDuration: `${animationSpeed}s`,
-    };
+    const colorString = colors.join(", ");
+    const borderColorString = colors[0];
 
     return (
         <span
-            className={`inline-block font-medium bg-cover animate-gradient ${className}`}
-                style={{
-                    ...gradientStyle,
-                    backgroundClip: "text",
-                    WebkitBackgroundClip: "text",
-                color: "transparent",
-                    backgroundSize: "300% 100%",
-                }}
-            >
-                {children}
+            className={`${className} ${showBorder ? 'border-2 px-4 py-2 rounded-full' : ''}`}
+            style={{
+                background: `linear-gradient(45deg, ${colorString})`,
+                backgroundSize: `${colors.length * 100}% 100%`,
+                animation: `gradientShift ${animationSpeed}s ease-in-out infinite`,
+                borderColor: showBorder ? borderColorString : 'transparent',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+            }}
+        >
+            {children}
         </span>
     );
 }
+
+
 
 export default function Hero() {
   const [showGlow, setShowGlow] = useState(true);
@@ -111,87 +109,79 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, []);
 
-  const typewriterText = useTypewriterAlternating(
-    'Optimiza citas y ',
-    ['reduce no-shows', 'mejora la experiencia del paciente', 'mejora tu tasa de asistencia', 'automatiza tus recordatorios'],
-    45, // velocidad intermedia para escribir y borrar
-    2000, // pausa después de escribir antes de borrar
-    2000  // pausa después de borrar antes de volver a escribir
-  );
-
   return (
     <section 
-      className="relative min-h-[80vh] sm:min-h-screen w-full flex flex-col lg:flex-row items-center justify-center overflow-x-hidden px-2 sm:px-0"
+      className="relative min-h-[80vh] sm:min-h-screen w-full flex items-center justify-center overflow-x-hidden px-4 sm:px-6 lg:px-8"
       role="banner"
       aria-label="Hero section"
     >
-      {/* Fondo con efectos desactivado temporalmente para aislar el problema de scroll */}
-      {/* <TechBackground /> */}
-      {/* <AnimatedShapeBlur /> */}
+      {/* Video de fondo */}
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+          style={{ zIndex: -1 }}
+        >
+          <source src="/src/assets/videos/fondodepantallaweb.mp4" type="video/mp4" />
+          Tu navegador no soporta el elemento de video.
+        </video>
+        {/* Overlay para mejorar legibilidad del texto */}
+        <div className="absolute inset-0 bg-black/50 backdrop-blur-sm"></div>
+      </div>
 
-      {/* Contenedor principal para el contenido del Hero */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-2 sm:px-4 md:px-6 py-8 sm:py-20 flex flex-col lg:flex-row items-center justify-center lg:items-center text-center gap-6 lg:gap-12">
-        {/* Columna izquierda: textos y botón */}
-        <div className="flex-1 flex flex-col items-center justify-center text-center w-full max-w-xl mx-auto">
+      {/* Contenedor principal centrado */}
+      <div className="relative z-10 w-full max-w-4xl mx-auto text-center space-y-8">
           {/* Badge/Etiqueta superior */}
           <motion.div
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5, delay: 0.6 }}
-            className="mb-3 sm:mb-6"
+            transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <GradientText
-              className="text-xs sm:text-sm lg:text-base font-bold tracking-wide uppercase"
-              colors={["#40ffaa", "#4079ff", "#40ffaa", "#4079ff", "#40ffaa"]}
-              showBorder={true}
-            >
-                TRANSFORMA TU CLÍNICA CON IA 
-            </GradientText>
+            <div className="inline-block bg-gray-800/20 border border-gray-600/50 rounded-full px-4 py-2">
+              <span className="text-gray-300 text-sm font-bold tracking-wide uppercase">
+                TRANSFORMA TU CLÍNICA CON IA
+              </span>
+            </div>
           </motion.div>
 
-          {/* Título Principal con Glow */}
+          {/* Título Principal */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.8 }}
-            className={`text-2xl xs:text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tight text-white leading-tight mb-3 sm:mb-6 transition-all duration-1000 ${
-              showGlow ? 'drop-shadow-[0_0_15px_rgba(255,255,255,0.3)]' : 'drop-shadow-[0_0_5px_rgba(255,255,255,0.1)]'
-            }`}
+            transition={{ duration: 0.8, delay: 0.4 }}
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
           >
-            Homero AI
+            Reduce costos, mejora la atención y acelera tu crecimiento
           </motion.h1>
 
-          {/* Sub-título/Destacado "Ready for everything" con animación de gradiente */}
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 1.0 }}
-            className="text-base xs:text-lg sm:text-3xl md:text-4xl lg:text-5xl font-extrabold leading-snug mb-5 sm:mb-8 max-w-xs sm:max-w-xl mx-auto text-center"
-          >
-            <span className="bg-clip-text text-transparent animate-gradient bg-gradient-to-r from-homero-purpleLight via-white to-homero-purpleLight">
-              {typewriterText}
-              <span className="inline-block w-2 h-6 align-middle bg-white ml-1 animate-pulse" style={{borderRadius:2}}></span>
-            </span>
-          </motion.h2>
 
-          {/* Botón CTA único */}
-          <motion.a
-            href="#contact"
+
+          {/* Botones CTA */}
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 1.4 }}
-            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 sm:py-4 sm:px-10 rounded-full text-base sm:text-lg shadow-lg hover:shadow-blue-500/50 hover:scale-105 hover:-translate-y-1 transition-all duration-300 flex items-center justify-between gap-3 min-w-[160px] sm:min-w-[280px] w-full sm:w-auto mx-auto"
-            aria-label="Ponte en contacto"
+            transition={{ duration: 0.8, delay: 0.8 }}
+            className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <span>Ponte en contacto</span>
-            <Icon name="Mail" size={20} className="group-hover:scale-110 transition-transform" />
-          </motion.a>
+            <a
+              href="#contact"
+              className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
+            >
+              <span>Solicitar Demo</span>
+              <Icon name="ArrowRight" size={18} />
+            </a>
+            <a
+              href="#features"
+              className="border-2 border-white text-white font-bold py-3 px-8 rounded-full transition-all duration-300 hover:bg-white hover:text-gray-900 flex items-center justify-center gap-2"
+            >
+              <span>Ver Casos de Uso</span>
+              <Icon name="ExternalLink" size={18} />
+            </a>
+          </motion.div>
         </div>
-        {/* Columna derecha: WhatsAppDemo */}
-        <div className="flex-1 flex items-center justify-center w-full mt-8 lg:mt-0">
-          <WhatsAppDemo />
-        </div>
-      </div>
-    </section>
+      </section>
   );
 }

@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -71,7 +75,22 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-manrope;
+  }
+  
+  /* Aplicar Outfit a títulos */
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-outfit;
+  }
+  
+  /* Aplicar Manrope a textos de párrafo y contenido principal */
+  p, li, span, div, a {
+    @apply font-manrope;
+  }
+  
+  /* Aplicar DM Sans a elementos de UI */
+  button, input, textarea, select, label {
+    @apply font-dm;
   }
 }
 
@@ -123,7 +142,7 @@
 
 body {
   color: var(--text);
-  font-family: 'Inter', sans-serif;
+  font-family: 'Manrope', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   margin: 0;
@@ -167,7 +186,7 @@ body {
 .interactive-square {
   width: 200px;
   height: 200px;
-  background: rgba(0, 255, 157, 0.1);
+  background: rgba(128, 128, 128, 0.1);
   border: 1px solid var(--primary);
   transition: all 0.3s ease;
   cursor: pointer;
@@ -181,7 +200,7 @@ body {
 .navbar {
   backdrop-filter: blur(10px);
   background: rgba(0, 0, 0, 0.95);
-  border-bottom: 1px solid rgba(0, 255, 157, 0.2);
+  border-bottom: 1px solid rgba(128, 128, 128, 0.2);
 }
 
 .nav-link {

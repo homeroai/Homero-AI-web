@@ -49,7 +49,7 @@ const faqData = [
   },
   {
     question: "¿En cuánto tiempo lo puedo tener funcionando?",
-    answer: "En menos de 48 horas. Activamos Homero con tus datos y empieza a funcionar casi de inmediato."
+    answer: "Todo depende de las necesidades de tu clínica, generalmente se puede tener funcionando en menos de 10 días. Activamos Homero con tus datos y cuando este todo listo, empieza a funcionar casi de inmediato."
   },
   {
     question: "¿Qué tan seguro es?",
@@ -65,7 +65,7 @@ const faqData = [
   },
   {
     question: "¿Hay alguna demo disponible?",
-    answer: "Sí. Puedes agendar una demo y ver cómo Homero respondería con los datos reales de tu clínica."
+    answer: "Sí. Puedes agendar una demo y ver cómo Homero respondería a tus pacientes."
   },
   {
     question: "¿Puedo personalizar las respuestas?",
@@ -188,7 +188,7 @@ export default function FaqSection() {
         <div className="flex justify-center mt-8 sm:mt-12">
           <motion.button
             onClick={() => setShowAll(!showAll)}
-            className="group bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-lg hover:shadow-blue-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-3 text-base sm:text-lg"
+                          className="group bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-lg hover:shadow-gray-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-3 text-base sm:text-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

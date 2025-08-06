@@ -8,11 +8,11 @@ export default {
   theme: {
   	extend: {
   		colors: {
-  			primary: '#00E3CC',       // un cian profundo tipo IA
-  			background: '#0B0F19',    // fondo negro-azulado
-  			surface: '#111827',       // gris oscuro para tarjetas
-  			accent: '#38BDF8',        // azul fluorescente (hover)
-  			muted: '#6B7280',         // gris texto
+  			primary: '#1a1a1a',       // negro profundo
+  			background: '#000000',    // fondo negro puro
+  			surface: '#0a0a0a',       // negro muy oscuro para tarjetas
+  			accent: '#333333',        // gris muy oscuro (hover)
+  			muted: '#666666',         // gris medio para texto
   			foreground: 'hsl(var(--foreground))',
   			card: {
   				DEFAULT: 'hsl(var(--card))',
@@ -37,17 +37,29 @@ export default {
   				'5': 'hsl(var(--chart-5))'
   			},
         homero: {
-          purple: '#7C1EB3',        // púrpura vibrante
-          purpleDark: '#3E0556',    // púrpura profundo
-          purpleLight: '#A855F7',   // acento brillante
-          base: '#0B0C10',          // fondo negro azulado
-          text: '#E0D6E9',          // texto gris-lavanda claro
+          purple: '#1a1a1a',        // negro profundo
+          purpleDark: '#000000',    // negro puro
+          purpleLight: '#333333',   // gris muy oscuro
+          base: '#000000',          // fondo negro puro
+          text: '#ffffff',          // texto blanco
           white: '#FFFFFF'          // blanco puro
         }
   		},
   		fontFamily: {
   			sans: [
-  				'Inter',
+  				'Manrope',
+  				'sans-serif'
+  			],
+  			outfit: [
+  				'Outfit',
+  				'sans-serif'
+  			],
+  			manrope: [
+  				'Manrope',
+  				'sans-serif'
+  			],
+  			dm: [
+  				'DM Sans',
   				'sans-serif'
   			]
   		},

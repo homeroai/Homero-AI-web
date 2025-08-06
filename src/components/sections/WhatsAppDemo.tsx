@@ -11,73 +11,72 @@ interface MessageData {
 const conversation: MessageData[] = [
   { 
     sender: 'patient', 
-    text: 'Hola, buenos días. Me gustaría agendar una consulta dental para una limpieza y revisión general.',
+    text: 'Hola, buenas tardes',
     timestamp: '09:15'
   },
   { 
     sender: 'ai', 
-    text: '¡Hola! Buenos días 😊 Por supuesto, con gusto te ayudo a agendar tu consulta. ¿Podrías decirme tu nombre completo?',
+    text: '¡Hola! 😊 ¿En qué puedo ayudarte hoy?',
     timestamp: '09:16'
   },
   { 
     sender: 'patient', 
-    text: 'Sí, me llamo María González.',
+    text: 'Me gustaría agendar una cita para una limpieza dental',
     timestamp: '09:17'
   },
-
   { 
     sender: 'ai', 
-    text: 'Perfecto María. ¿Eres paciente nueva o ya tienes historial con nosotros?',
+    text: '¡Claro! Para agendar tu cita, necesito que me proporciones tu nombre completo y tu RUT, por favor.',
     timestamp: '09:18'
   },
   { 
     sender: 'patient', 
-    text: 'Soy paciente nueva. Una amiga me recomendó la clínica.',
+    text: 'Me llamo Daniel, Rut 21.111.111-1',
     timestamp: '09:19'
   },
   { 
     sender: 'ai', 
-    text: '¡Excelente! Bienvenida a nuestra clínica. Para agendar tu cita necesito algunos datos. ¿Tienes algún día preferido de la semana?',
+    text: 'Gracias, Daniel. ¿Qué día prefieres para tu limpieza dental? ¿Te gustaría en la mañana o en la tarde?',
     timestamp: '09:20'
   },
   { 
     sender: 'patient', 
-    text: 'Preferiría en la tarde, después de las 5 PM, y cualquier día excepto martes.',
+    text: 'Tienen disponible el 29 a las 13?',
     timestamp: '09:21'
   },
   { 
     sender: 'ai', 
-    text: 'Perfecto. Tengo disponibles estos horarios: Lunes 17:30, Miércoles 18:00, Jueves 17:00 y Viernes 18:30. ¿Cuál te conviene más?',
+    text: 'El 29 de julio a las 13:00 no está disponible. Pero tenemos horarios libres a las 08:00, 09:00, 10:00, 11:00, 12:00, 14:00, 15:00, 16:00 o 17:00.\n\n¿Cuál te gustaría elegir?',
     timestamp: '09:22'
   },
   { 
     sender: 'patient', 
-    text: 'El miércoles a las 18:00 me viene perfecto.',
+    text: 'A las 10 esta bien gracias',
     timestamp: '09:23'
   },
   { 
     sender: 'ai', 
-    text: '¡Genial! Te agendo para el miércoles 18:00. ¿Podrías confirmarme tu número de teléfono para enviarte el recordatorio?',
+    text: '✅ ¡Perfecto! Tu cita ha sido agendada exitosamente.\n\n📅 Limpieza Dental - Daniel\n🕐 Martes, 29 de julio de 2025 a las 10:00\n📍 Clínica DentIA\n\nSi necesitas reagendar o cancelar, contáctanos con tu RUT: 21.111.111-1. ¡Te esperamos! 😊',
     timestamp: '09:24'
   },
   { 
     sender: 'patient', 
-    text: 'Sí, es +56 9 1234 5678',
+    text: 'La puedes cancelar por favor, se me olvido que tengo un evento',
     timestamp: '09:25'
   },
   { 
     sender: 'ai', 
-    text: 'Perfecto. Tu cita para el miércoles a las 18:00 está confirmada. Recibirás un recordatorio 24 horas antes. ¿Necesitas algo más?',
+    text: '✅ La cita de limpieza dental para ti, Daniel, ha sido cancelada exitosamente.\n\nSi necesitas agendar una nueva cita o cualquier otra cosa, no dudes en decírmelo. ¡Estoy aquí para ayudarte! 😊',
     timestamp: '09:26'
   },
   { 
     sender: 'patient', 
-    text: 'No, eso es todo. ¡Muchas gracias!',
+    text: 'Me la puedes agendar el 29 a las 15?',
     timestamp: '09:27'
   },
   { 
     sender: 'ai', 
-    text: '¡De nada! Te esperamos. ¡Que tengas un excelente día! 😊',
+    text: '✅ ¡Perfecto! Tu cita ha sido agendada exitosamente.\n\n📅 Limpieza Dental - Daniel\n🕐 Martes, 29 de julio de 2025 a las 15:00\n📍 Clínica DentIA\n\nSi necesitas reagendar o cancelar, contáctanos con tu RUT: 21.111.111-1. ¡Te esperamos! 😊',
     timestamp: '09:28'
   },
 ];
@@ -127,6 +126,38 @@ const TypingIndicator = () => (
       />
     </div>
   </motion.div>
+);
+
+// Componente para las conexiones y logos flotantes
+const IntegrationConnections = () => (
+  <div className="absolute inset-0 overflow-hidden pointer-events-none">
+    {/* Partículas flotantes */}
+    <motion.div
+      animate={{ 
+        y: [0, -15, 0],
+        opacity: [0.3, 0.7, 0.3]
+      }}
+      transition={{ 
+        duration: 4, 
+        repeat: Infinity,
+        ease: "easeInOut"
+      }}
+                    className="absolute top-[35%] left-[35%] w-2 h-2 bg-gray-400 rounded-full"
+    />
+    <motion.div
+      animate={{ 
+        y: [0, -12, 0],
+        opacity: [0.2, 0.5, 0.2]
+      }}
+      transition={{ 
+        duration: 5, 
+        repeat: Infinity,
+        ease: "easeInOut",
+        delay: 1
+      }}
+      className="absolute top-[65%] left-[30%] w-1 h-1 bg-red-400 rounded-full"
+    />
+  </div>
 );
 
 export default function WhatsAppDemo() {
@@ -186,74 +217,118 @@ export default function WhatsAppDemo() {
     }
   }, [messages, isTyping]);
 
-  // Esta función ahora está vacía y no se necesita, pero la mantenemos por si se usa en otro lugar.
-  const handleTypingComplete = () => {};
-
   return (
-    <section id="demo" className="py-16 sm:py-24 bg-transparent min-h-[700px] md:min-h-[700px] overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 text-center">
-        <motion.h2 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8 }}
-          className="text-3xl sm:text-5xl font-extrabold text-white mb-4"
-        >
-          
-        </motion.h2>
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, amount: 0.5 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto mb-12"
-        >
-        </motion.p>
-        
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true, amount: 0.3 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
-          className="max-w-md mx-auto bg-gray-900 border-4 border-gray-700 rounded-[2.5rem] shadow-2xl p-2 overflow-hidden"
-          style={{ height: '500px', minHeight: '500px', maxHeight: '500px', display: 'flex', alignItems: 'stretch' }}
-        >
-          <div className="bg-white rounded-[2rem] overflow-hidden flex flex-col h-full w-full">
-            {/* Header del chat */}
-            <div className="bg-gray-100 px-4 py-3 flex items-center gap-3 border-b">
-              <div className="w-10 h-10 rounded-full bg-homero-purple flex items-center justify-center">
-                <Icon name="Stethoscope" className="text-white" />
-              </div>
-              <div className="flex-1">
-                <h3 className="font-bold text-black text-sm">Clínica Dental Familiar</h3>
-                <p className="text-xs text-green-600 flex items-center gap-1">
-                  <span className="w-2 h-2 bg-green-500 rounded-full"></span>
-                  en línea
-                </p>
-              </div>
-            </div>
-
-            {/* Cuerpo del chat */}
-            <div 
-              ref={chatContainerRef} 
-              className="flex-1 bg-cover bg-center p-4 flex flex-col gap-3 overflow-y-auto w-full"
-              style={{ backgroundImage: "url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')"}}
+          <section id="demo" className="py-16 sm:py-24 bg-gradient-to-br from-gray-900 to-gray-800 min-h-[700px] md:min-h-[800px] overflow-hidden relative">
+      {/* Fondo con conexiones */}
+      <IntegrationConnections />
+      
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          {/* Columna izquierda - Texto y descripción */}
+          <div className="text-left md:text-center">
+            <motion.h2 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8 }}
+              className="text-3xl sm:text-5xl font-extrabold text-white mb-6"
             >
-              <AnimatePresence>
-                {messages.map((msg, index) => (
-                  <Message 
-                    key={index} 
-                    msg={msg} 
-                  />
-                ))}
-                {isTyping && <TypingIndicator />}
-              </AnimatePresence>
-            </div>
+              Responde, agenda y <span className="text-gray-400">automatiza</span> tus citas
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="text-lg sm:text-xl text-white/80 mb-8"
+            > Mantén el toque humano mientras optimizas tu tiempo. Nuestra IA entiende el contexto médico, 
+              responde con empatía y asegura que cada paciente se sienta cuidado y escuchado.
+              
+            </motion.p>
+            
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="text-base text-white/70 mb-8 max-w-2xl"
+            >
+              
+            </motion.p>
+
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="space-y-6"
+            >
+              <div className="flex items-center space-x-3 md:justify-center">
+                <div className="bg-white/10 p-2 rounded-full">
+                  <Icon name="Calendar" className="text-white w-5 h-5" />
+                </div>
+                <p className="text-white/90">Integración con sistemas de agenda</p>
+              </div>
+              
+              <div className="flex items-center space-x-3 md:justify-center">
+                <div className="bg-white/10 p-2 rounded-full">
+                  <Icon name="Mail" className="text-white w-5 h-5" />
+                </div>
+                <p className="text-white/90">Notificaciones automáticas por email</p>
+              </div>
+              
+              <div className="flex items-center space-x-3 md:justify-center">
+                <div className="bg-white/10 p-2 rounded-full">
+                  <Icon name="MessageSquare" className="text-white w-5 h-5" />
+                </div>
+                <p className="text-white/90">Comunicación fluida por WhatsApp</p>
+              </div>
+            </motion.div>
           </div>
-        </motion.div>
+          
+          {/* Columna derecha - WhatsApp Demo */}
+          <motion.div 
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            className="w-full max-w-[350px] mx-auto bg-gray-900 border-4 border-gray-700 rounded-[2.5rem] shadow-2xl p-2 overflow-hidden relative z-20"
+            style={{ height: '600px', minHeight: '600px', maxHeight: '600px', display: 'flex', alignItems: 'stretch' }}
+          >
+            <div className="bg-white rounded-[2rem] overflow-hidden flex flex-col h-full w-full">
+              {/* Header del chat */}
+              <div className="bg-gray-100 px-4 py-3 flex items-center gap-3 border-b">
+                <div className="w-10 h-10 rounded-full bg-homero-purple flex items-center justify-center">
+                  <Icon name="Stethoscope" className="text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-xs text-green-600 flex items-center gap-1">
+                    <span className="w-2 h-2 bg-green-500 rounded-full"></span>
+                    en línea
+                  </p>
+                </div>
+              </div>
+
+              {/* Cuerpo del chat */}
+              <div 
+                ref={chatContainerRef} 
+                className="flex-1 bg-cover bg-center p-4 flex flex-col gap-3 overflow-y-auto w-full"
+                style={{ backgroundImage: "url('https://i.pinimg.com/736x/8c/98/99/8c98994518b575bfd8c949e91d20548b.jpg')"}}
+              >
+                <AnimatePresence>
+                  {messages.map((msg, index) => (
+                    <Message 
+                      key={index} 
+                      msg={msg} 
+                    />
+                  ))}
+                  {isTyping && <TypingIndicator />}
+                </AnimatePresence>
+              </div>
+            </div>
+          </motion.div>
+        </div>
       </div>
-      {/* Separador para evitar movimiento de la siguiente sección */}
-      <div className="h-12 md:h-20"></div>
     </section>
   );
 } 

@@ -99,7 +99,7 @@ export default function DashboardVisual() {
               aria-labelledby="dental-clinic-name"
             >
               <div className="flex items-center gap-3 mb-3">
-                <div className="relative w-10 h-10 rounded-full bg-blue-600 flex items-center justify-center">
+                <div className="relative w-10 h-10 rounded-full bg-gray-600 flex items-center justify-center">
                   <Icon name="Tooth" size={24} className="text-white" />
                   <span className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-black" aria-label="Online status"></span>
                 </div>
@@ -120,7 +120,7 @@ export default function DashboardVisual() {
               <div className="flex items-center gap-3 mb-3">
                 <div className="relative w-10 h-10 rounded-full bg-emerald-600 flex items-center justify-center">
                   <Icon name="HeartPulse" size={24} className="text-white" />
-                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-blue-400 rounded-full border-2 border-black" aria-label="Offline status"></span>
+                  <span className="absolute bottom-0 right-0 w-3 h-3 bg-gray-400 rounded-full border-2 border-black" aria-label="Offline status"></span>
                 </div>
                 <span className="text-white font-medium text-lg" id="health-clinic-name">Centro Médico Bienestar</span>
               </div>
