@@ -1,22 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { X, Check, Clock, Users, MessageSquare, Calendar, Zap, Heart } from 'lucide-react';
+import { Icon } from '@/components/ui/Icon';
 
 export default function BeforeAfterSection() {
   const beforeProblems = [
-    { text: "Horas perdidas respondiendo consultas", icon: Clock },
-    { text: "Pacientes esperando horas por atención", icon: Users },
-    { text: "Mensajes ignorados fuera del horario laboral", icon: MessageSquare },
-    { text: "Citas perdidas por demoras en responder", icon: Calendar },
-    { text: "Agendar citas manualmente toma tiempo", icon: Clock },
+    { text: "Tiempo perdido respondiendo mensajes", icon: 'Clock' },
+    { text: "Clientes esperando por respuesta", icon: 'Users' },
+    { text: "Mensajes ignorados fuera del horario laboral", icon: 'MessageSquare' },
+    { text: "Oportunidades de venta perdidas por demoras", icon: 'Calendar' },
+    { text: "Gestión manual de pedidos y reservas", icon: 'Clock' },
   ];
 
   const afterBenefits = [
-    { text: "Consultas resueltas en segundos", icon: Zap },
-    { text: "Pacientes atendidos 24/7", icon: Users },
-    { text: "Tu clínica siempre disponible", icon: Heart },
-    { text: "Citas cerradas en piloto automático", icon: Calendar },
-    { text: "Calendarios llenos sin esfuerzo manual", icon: Zap },
+    { text: "Consultas resueltas en segundos", icon: 'Zap' },
+    { text: "Clientes atendidos 24/7", icon: 'Users' },
+    { text: "Tu negocio siempre disponible", icon: 'Heart' },
+    { text: "Ventas y reservas en piloto automático", icon: 'Calendar' },
+    { text: "Procesos automatizados sin esfuerzo manual", icon: 'Zap' },
   ];
 
   const beforeMessages = [
@@ -29,39 +29,39 @@ export default function BeforeAfterSection() {
     },
     { 
       name: "Sofía Rojas", 
-      message: "¿Alguien puede ayudarme urgente?", 
+      message: "¿Alguien me puede atender?", 
       emoji: "😰",
       app: "instagram", 
       appColor: "bg-orange-500"
     },
     { 
       name: "Roberto Silva", 
-      message: "No puedo confirmar mi cita.", 
-      emoji: "😤😤",
+      message: "Estoy esperando por una respuesta", 
+      emoji: "⌛️",
       app: "messenger",
-              appColor: "bg-gray-600"
+      appColor: "bg-gray-600"
     },
   ];
 
   const afterMessages = [
     { 
       name: "María González", 
-      message: "Espero mi cita con emoción.", 
+      message: "Gracias por la aclaración", 
       emoji: "😊",
       app: "whatsapp",
       appColor: "bg-green-500"
     },
     { 
       name: "Fernando Herrera", 
-      message: "Listo para mi consulta, lo valoro.", 
-      emoji: "❤️",
+      message: "Gracias por la respuesta", 
+      emoji: "✅",
       app: "whatsapp",
       appColor: "bg-green-500"
     },
     { 
       name: "Patricia Vega", 
-      message: "Excelente servicio, muy agradecido.", 
-      emoji: "🙏",
+      message: "Excelente atención, volveré.", 
+      emoji: "🙌",
       app: "whatsapp",
       appColor: "bg-green-500"
     },
@@ -82,7 +82,7 @@ export default function BeforeAfterSection() {
             ANTES Y DESPUÉS
           </h2>
           <p className="text-lg sm:text-xl text-white/80 max-w-3xl mx-auto">
-            Descubre cómo Homero AI transforma la gestión de tu clínica dental
+            Descubre cómo Homero AI transforma la gestión de tu negocio
           </p>
         </motion.div>
 
@@ -104,7 +104,7 @@ export default function BeforeAfterSection() {
               </div>
 
               {/* Lista de problemas */}
-              <div className="space-y-3 mb-6 flex flex-col items-center">
+              <div className="space-y-3 mb-6 flex flex-col items-start">
                 {beforeProblems.map((problem, index) => (
                   <motion.div
                     key={index}
@@ -112,12 +112,12 @@ export default function BeforeAfterSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex items-center space-x-3 justify-center w-full"
+                    className="flex items-center space-x-2 justify-start w-full"
                   >
-                    <div className="flex-shrink-0 w-5 h-5 bg-red-500 rounded-full flex items-center justify-center">
-                      <X className="w-3 h-3 text-white" />
+                    <div className="flex-shrink-0 w-4 h-4 bg-red-500 rounded-full flex items-center justify-center">
+                      <Icon name="X" className="w-2 h-2 text-white" />
                     </div>
-                    <span className="text-white/90 text-base">{problem.text}</span>
+                    <span className="text-white/90 text-lg">{problem.text}</span>
                   </motion.div>
                 ))}
               </div>
@@ -196,7 +196,7 @@ export default function BeforeAfterSection() {
               </div>
 
               {/* Lista de beneficios */}
-              <div className="space-y-3 mb-6 flex flex-col items-center">
+              <div className="space-y-3 mb-6 flex flex-col items-start">
                 {afterBenefits.map((benefit, index) => (
                   <motion.div
                     key={index}
@@ -204,12 +204,12 @@ export default function BeforeAfterSection() {
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                    className="flex items-center space-x-3 justify-center w-full"
+                    className="flex items-center space-x-2 justify-start w-full"
                   >
-                    <div className="flex-shrink-0 w-5 h-5 bg-green-500 rounded-full flex items-center justify-center">
-                      <Check className="w-3 h-3 text-white" />
+                    <div className="flex-shrink-0 w-4 h-4 bg-green-500 rounded-full flex items-center justify-center">
+                      <Icon name="Check" className="w-2 h-2 text-white" />
                     </div>
-                    <span className="text-white/90 text-base">{benefit.text}</span>
+                    <span className="text-white/90 text-lg">{benefit.text}</span>
                   </motion.div>
                 ))}
               </div>
@@ -285,7 +285,7 @@ export default function BeforeAfterSection() {
           className="text-center mt-12"
         >
           <p className="text-xl text-white/90 mb-6">
-            Reduce costos operativos, mejora el servicio y acelera el crecimiento de tu clínica
+            Reduce costos operativos, mejora el servicio y acelera el crecimiento de tu negocio
           </p>
           <motion.button
             whileHover={{ scale: 1.05 }}

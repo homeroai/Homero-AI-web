@@ -5,42 +5,42 @@ import { Icon } from '@/components/ui/Icon';
 const faqData = [
   {
     question: "¿Qué es Homero?",
-    answer: "Homero es un asistente digital que responde por tu clínica 24/7 en WhatsApp, Instagram, Facebook o Telegram. Agenda, confirma, responde dudas y recuerda citas automáticamente."
+    answer: "Homero es un asistente digital que atiende por tu negocio 24/7 en WhatsApp, Instagram, Facebook o Telegram. Toma pedidos, gestiona reservas, responde dudas y hace seguimiento automáticamente."
   },
   {
     question: "¿Qué diferencia a Homero de un chatbot común?",
-    answer: "A diferencia de un bot genérico, Homero piensa cada respuesta en base a tu clínica específica: tus servicios, precios, horarios, políticas y estilo. No copia-pega respuestas. Responde como si fuera parte real de tu equipo."
+    answer: "Homero se adapta a las necesidades de cada negocio. Nosotros lo entrenamos con tus productos o servicios, precios, horarios, políticas, procesos y tono de marca. No copia-pega respuestas: contesta como si fuera parte de tu equipo."
   },
   {
     question: "¿Cómo funciona Homero?",
-    answer: "Conecta tus canales (como WhatsApp) y Homero empieza a responder pacientes en tu nombre. Agenda, confirma, reprograma y responde dudas sin que tú hagas nada."
+    answer: "Conectas tus canales (como WhatsApp) y Homero comienza a responder a tus clientes en tu nombre. Automatiza pedidos, reservas y preguntas frecuentes; si la consulta es compleja, la deriva a tu equipo sin interrumpir la conversación."
   },
   {
     question: "¿En qué canales puede atender?",
     answer: "Homero puede atender en WhatsApp Business, Instagram, Facebook Messenger y Telegram. Puedes activarlo en todos los canales o solo en los que uses."
   },
   {
-    question: "¿Homero reemplaza a mi recepcionista?",
-    answer: "No, la complementa. Tu recepcionista se enfoca en los pacientes presentes. Homero responde rápido a los que escriben online, a cualquier hora."
+    question: "¿Homero reemplaza a mi equipo?",
+    answer: "No, lo complementa. Homero responde rápido a quienes escriben online a cualquier hora, y tu equipo se enfoca en tareas de mayor valor."
   },
   {
-    question: "¿Cómo Homero ayuda a reducir los no-shows?",
-    answer: "Homero envía recordatorios antes de cada cita, permite que los pacientes confirmen o reprogramen fácilmente, y mantiene la agenda actualizada. Así, más pacientes llegan y menos horas se pierden."
+    question: "¿Cómo ayuda a reducir los no‑shows y el abandono?",
+    answer: "Homero envía recordatorios, permite confirmar o reprogramar, y hace seguimiento automático. También recupera carritos e interesados para aumentar conversiones."
   },
   {
-    question: "¿Puede agendar y reagendar citas automáticamente?",
-    answer: "Sí. Homero agenda, reprograma o cancela según disponibilidad. Incluso detecta urgencias y las prioriza si está configurado."
+    question: "¿Puede gestionar reservas automáticamente?",
+    answer: "Sí. Homero agenda, reprograma o cancela según disponibilidad y reglas del negocio. Incluso puede priorizar urgencias si aplica."
   },
   {
     question: "¿Qué tipo de preguntas puede responder?",
-    answer: "Horarios, precios, ubicación, formas de pago, doctores, tratamientos, duración de citas, postoperatorios, promociones, etc. Puedes entrenarlo con tus propias respuestas."
+    answer: "Horarios, precios, stock, ubicación, tiempos de entrega, medios de pago, políticas, promociones, etc. Lo entrenamos con tus propias respuestas para que sea 100% preciso."
   },
   {
     question: "¿Homero puede hablar como una persona?",
-    answer: "Sí. Homero usa lenguaje humano, cálido y profesional. La mayoría de los pacientes no nota que es un asistente digital."
+    answer: "Sí. Homero usa lenguaje humano, cercano y profesional. La mayoría de los clientes no nota que es un asistente digital."
   },
   {
-    question: "¿Qué pasa si un paciente pide hablar con una persona?",
+    question: "¿Qué pasa si un cliente pide hablar con una persona?",
     answer: "Homero detecta automáticamente esa intención y deriva a tu equipo sin interrumpir la conversación."
   },
   {
@@ -48,12 +48,12 @@ const faqData = [
     answer: "No. Solo necesitamos acceso a tus canales y un formulario inicial. El resto lo hacemos nosotros."
   },
   {
-    question: "¿En cuánto tiempo lo puedo tener funcionando?",
-    answer: "Todo depende de las necesidades de tu clínica, generalmente se puede tener funcionando en menos de 10 días. Activamos Homero con tus datos y cuando este todo listo, empieza a funcionar casi de inmediato."
+    question: "¿En cuánto tiempo puedo tenerlo funcionando?",
+    answer: "Depende de las necesidades de tu negocio, generalmente en menos de 10 días. Cargamos tu información, entrenamos a Homero y, cuando todo está listo, empieza a funcionar de inmediato."
   },
   {
     question: "¿Qué tan seguro es?",
-    answer: "La seguridad de sus datos es nuestra prioridad número uno. Como usamos el modelo de OpenAI, aprovechamos su sistema de seguridad de datos para garantizar la máxima protección de la información de sus pacientes."
+    answer: "La seguridad de los datos es prioridad. Usamos la infraestructura de OpenAI y buenas prácticas de seguridad y privacidad (como RGPD). Si trabajas en salud, podemos cumplir requisitos como HIPAA."
   },
   {
     question: "¿Funciona en mi país?",
@@ -61,27 +61,27 @@ const faqData = [
   },
   {
     question: "¿Cuánto cuesta Homero?",
-    answer: "El precio depende de cada clínica y sus necesidades específicas. Te invitamos a ponerte en contacto con nosotros para una cotización personalizada."
+    answer: "El precio depende del tamaño y necesidades de tu negocio. Contáctanos para una cotización personalizada."
   },
   {
     question: "¿Hay alguna demo disponible?",
-    answer: "Sí. Puedes agendar una demo y ver cómo Homero respondería a tus pacientes."
+    answer: "Sí. Puedes agendar una demo y ver cómo Homero respondería a tus clientes."
   },
   {
     question: "¿Puedo personalizar las respuestas?",
-    answer: "Sí. Tú decides el tono, la información, los servicios que debe mencionar, e incluso los protocolos si trabajas con seguros o convenios."
+    answer: "Sí. Definimos juntos el tono, la información clave y los protocolos. Nosotros entrenamos a Homero con todo lo que necesita para atender como tu marca."
   },
   {
-    question: "¿Qué clínicas pueden usar Homero?",
-    answer: "Clínicas dentales, estéticas, oftalmológicas, kinesiológicas, médicas generales y más. Si tienes pacientes que escriben por WhatsApp o redes, Homero puede ayudarte."
+    question: "¿Qué negocios pueden usar Homero?",
+    answer: "E‑commerce, restaurantes, clínicas y centros de salud, ferreterías, gimnasios, tiendas locales, educación y más. Si tus clientes escriben por WhatsApp o redes, Homero puede ayudarte."
   },
   {
     question: "¿Qué necesito para empezar?",
-    answer: "Solo compartir los datos básicos de tu clínica (horarios, precios, especialidades) y acceso a tu canal de WhatsApp o Instagram. Nosotros nos encargamos del resto."
+    answer: "Compartir la información base de tu negocio (catálogo o servicios, precios, horarios, políticas, procesos y FAQs) y acceso a los canales. Nosotros entrenamos a Homero y lo dejamos listo."
   },
   {
     question: "¿Por qué debería confiar en Homero?",
-    answer: "Porque responde como tú, sin errores, sin demoras y sin días libres. Mientras tú descansas, Homero sigue atendiendo pacientes y llenando tu agenda."
+    answer: "Porque responde como tú, sin errores ni demoras. Mientras descansas, Homero atiende a tus clientes y convierte conversaciones en ventas o reservas."
   }
 ];
 
@@ -188,7 +188,7 @@ export default function FaqSection() {
         <div className="flex justify-center mt-8 sm:mt-12">
           <motion.button
             onClick={() => setShowAll(!showAll)}
-                          className="group bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-lg hover:shadow-gray-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-3 text-base sm:text-lg"
+            className="group bg-gray-700 hover:bg-gray-800 text-white font-bold py-3 px-6 sm:px-8 rounded-full shadow-lg hover:shadow-gray-500/50 hover:scale-105 transition-all duration-300 flex items-center gap-3 text-base sm:text-lg"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >

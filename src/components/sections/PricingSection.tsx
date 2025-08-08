@@ -6,15 +6,15 @@ const plans = [
     name: 'Esencial',
     price: '$99',
     priceDetail: 'USD/mes',
-    description: 'Perfecto para consultorios que están empezando',
+    description: 'Ideal para negocios que están comenzando con automatización',
     features: [
       'Canal WhatsApp Business',
       'Hasta 700 mensajes/mes',
-      'Integración a Calendario',
+      'Integración con calendario',
       'Integración a CRM',
       'Recordatorios simples',
       'Respuestas automáticas FAQ',
-      'Horario limitado (Horario de trabajo)',
+      'Horario de atención limitado',
       'Soporte por WhatsApp',
     ],
     button: 'Ponte en Contacto',
@@ -28,13 +28,13 @@ const plans = [
     name: 'Profesional',
     price: '$159',
     priceDetail: 'USD/mes',
-    description: 'Para clínicas que quieren crecer sin límites',
+    description: 'Para negocios que quieren escalar sin límites',
     features: [
       'Todo lo del plan Esencial',
       'WhatsApp + Instagram',
       'Hasta 2,000 mensajes/mes',
       'Recordatorios automáticos',
-      'Recuperación de pacientes',
+      'Recuperación de clientes',
       'Horario ilimitado (Atención 24/7)',
       'Soporte prioritario',
     ],
@@ -57,7 +57,6 @@ const plans = [
       'IA personalizada',
       'Agente de Voz',
       'Integraciones CRM avanzadas',
-      'API access completo',
       'Analytics avanzados',
       'Soporte dedicado 24/7',
     ],
@@ -80,7 +79,7 @@ export default function PricingSection() {
           <span className="flex items-center gap-2 bg-black/60 border border-blue-400/30 rounded-full px-4 py-2 text-blue-300 font-semibold text-base"><Icon name="Gift" className="text-blue-300" size={20}/> 14 días gratis en cualquier plan</span>
           <span className="flex items-center gap-2 bg-black/60 border border-gray-400/30 rounded-full px-4 py-2 text-gray-300 font-semibold text-base"><Icon name="CreditCard" className="text-gray-300" size={20}/> Sin permanencia - cancela cuando quieras</span>
         </div>
-        <p className="text-white/70 text-center max-w-2xl mx-auto mb-2 text-lg">Elige el plan que mejor se adapte a tu clínica.</p>
+        <p className="text-white/70 text-center max-w-2xl mx-auto mb-2 text-lg">Elige el plan que mejor se adapte a tu negocio.</p>
       </div>
       {/* Tarjetas de planes */}
       <div className="w-full flex flex-col md:flex-row items-center justify-center gap-8 max-w-5xl mx-auto mb-8">
@@ -115,7 +114,7 @@ export default function PricingSection() {
             </ul>
             <a
               href="#contact"
-                              className={`w-full py-3 rounded-xl text-center text-base font-semibold mt-auto bg-gradient-to-r from-gray-700 to-gray-800 text-white hover:scale-105 transition block`}
+              className={`w-full py-3 rounded-xl text-center text-base font-semibold mt-auto bg-gradient-to-r from-gray-700 to-gray-800 text-white hover:scale-105 transition block`}
             >
               {plan.button}
             </a>
@@ -124,7 +123,7 @@ export default function PricingSection() {
       </div>
       {/* Footer especial de la sección */}
       <div className="flex flex-col items-center gap-3 mt-4">
-        <span className="text-white/90 text-base font-semibold">Todas las clínicas empiezan con <span className="text-blue-400 font-bold">14 días completamente gratis</span></span>
+        <span className="text-white/90 text-base font-semibold">Todos los negocios empiezan con <span className="text-blue-400 font-bold">14 días completamente gratis</span></span>
         <a href="#contact" className="inline-block bg-gradient-to-r from-gray-600 to-gray-700 text-white font-bold px-6 py-3 rounded-full shadow-lg hover:scale-105 transition text-base">¿Tienes dudas? Agenda una demo gratuita</a>
       </div>
     </section>

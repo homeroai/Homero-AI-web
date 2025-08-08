@@ -5,51 +5,51 @@ import { Icon } from '@/components/ui/Icon'; // Importar el componente Icon
 export function FeaturesSection() {
   const features = [
     {
-      title: "Citas Automáticas",
+      title: "Ventas y Reservas Automáticas",
       description:
-        "Homero agenda, confirma y reprograma citas solo. Tus pacientes reciben recordatorios por WhatsApp, Correos o SMS, y tú dejas de perder tiempo y dinero por inasistencias.",
+        "Homero toma pedidos, crea reservas, confirma y reprograma cuando hace falta. Tus clientes reciben recordatorios por WhatsApp, Instagram, SMS o email para que no se pierda ninguna venta.",
       icon: <Icon name="CalendarCheck" className="text-white" />,
     },
     {
       title: "Respuestas por Todos los Canales",
       description:
-        "Pacientes te escriben por WhatsApp, Instagram o SMS. Homero responde al tiro, sin que tengas que estar pegado al celular.",
+        "Clientes te escriben por WhatsApp, Instagram, Facebook o Telegram. Homero responde al instante y mantiene la conversación sin que tengas que estar pegado al celular.",
       icon: <Icon name="MessagesSquare" className="text-white" />,
     },
     {
       title: "Atención 24/7 con IA",
       description:
-        "Homero contesta dudas frecuentes de tus pacientes sobre precios, horarios o servicios a cada minuto del dia, Homero no duerme. Si es algo complejo, se lo deriva a tu equipo. Siempre hay alguien respondiendo.",
+        "Responde preguntas sobre precios, horarios, stock, estados de pedido o servicios a cualquier hora. Si es algo complejo, lo deriva a tu equipo. Siempre hay alguien atendiendo.",
       icon: <Icon name="Bot" className="text-white" />,
     },
     {
-      title: "Seguimiento Automático",
+      title: "Seguimiento y Recuperación",
       description:
-        "Después de la consulta, Homero se encarga del seguimiento. Manda encuestas, recuerda controles y ayuda a que tus pacientes vuelvan solos.",
+        "Automatiza recordatorios, encuestas, recupera carritos abandonados y vuelve a contactar clientes interesados. Menos tareas manuales, más conversiones.",
       icon: <Icon name="Users" className="text-white" />,
     },
     {
       title: "Métricas Claras",
       description:
-        "Sabrás cuántas citas se concretan, cuántos pacientes confirman, y si tus mensajes están funcionando. Todo en simple y sin Excel.",
+        "Ve cuántas conversaciones se convierten en ventas o reservas, tiempos de respuesta y qué canales rinden mejor. Todo claro y sin hojas de cálculo.",
       icon: <Icon name="BarChart3" className="text-white" />,
     },
     {
       title: "Flujos Internos Simplificados",
       description:
-        "Homero automatiza cosas como dar la bienvenida, pedir consentimientos o actualizar datos del paciente. Menos papeleo, más tiempo para atender.",
+        "Automatiza bienvenida, calificación de leads, actualización de datos y derivaciones. Tu equipo se enfoca en lo importante, no en procesos repetitivos.",
       icon: <Icon name="Workflow" className="text-white" />,
     },
     {
       title: "Se Conecta con Todo",
       description:
-        "Homero se integra fácil con tu agenda (Google Calendar, Calendly) y tu base de datos. Todo queda conectado y funcionando sin enredos.",
+        "Integra tu agenda, e‑commerce, CRM y hojas de cálculo. Conectamos con Google Calendar, Calendly y más herramientas para que todo funcione sin enredos.",
       icon: <Icon name="Plug" className="text-white" />,
     },
     {
-      title: "Tus datos están 100% protegidos",
+      title: "Tus datos están protegidos",
       description:
-        "Homero funciona con tecnología de OpenAI, una de las más seguras del mundo. Todos los datos de tus pacientes se procesan con los más altos estándares de privacidad y cumplimiento (como HIPAA y RGPD). Tu clínica, y tus pacientes, están en buenas manos.",
+        "Homero utiliza tecnología de OpenAI y aplica buenas prácticas de seguridad y privacidad. Datos de tus clientes tratados con estándares como RGPD.",
       icon: <Icon name="ShieldCheck" className="text-white" />,
     },
   ];

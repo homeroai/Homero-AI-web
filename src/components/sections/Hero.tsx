@@ -143,7 +143,7 @@ export default function Hero() {
           >
             <div className="inline-block bg-gray-800/20 border border-gray-600/50 rounded-full px-4 py-2">
               <span className="text-gray-300 text-sm font-bold tracking-wide uppercase">
-                TRANSFORMA TU CLÍNICA CON IA
+                TRANSFORMA TU NEGOCIO CON IA
               </span>
             </div>
           </motion.div>
@@ -155,10 +155,18 @@ export default function Hero() {
             transition={{ duration: 0.8, delay: 0.4 }}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight"
           >
-            Reduce costos, mejora la atención y acelera tu crecimiento
+            Responde a tiempo y no pierdas mas clientes
           </motion.h1>
 
-
+          {/* Subtítulo descriptivo */}
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.6 }}
+            className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed"
+          >
+            Haz efectiva la comunicación con tus clientes con IA
+          </motion.p>
 
           {/* Botones CTA */}
           <motion.div
@@ -171,7 +179,7 @@ export default function Hero() {
               href="#contact"
               className="bg-gray-800 hover:bg-gray-700 text-white font-bold py-3 px-8 rounded-full transition-all duration-300 hover:scale-105 flex items-center justify-center gap-2"
             >
-              <span>Solicitar Demo</span>
+              <span>Solicitar Demo Gratis</span>
               <Icon name="ArrowRight" size={18} />
             </a>
             <a
